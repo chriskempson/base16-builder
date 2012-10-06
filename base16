@@ -114,7 +114,12 @@ class Theme
       scheme_name = slug(scheme)
 
       make_dir("#{@output_dir}/#{dir_name}")
-      
+
+      #Emacs themes require -theme to appended to end of filename
+      if dir_name=="emacs"
+        scheme_name << "-theme"
+      end
+
       output_file = File.open(
         "#{@output_dir}/#{dir_name}/base16-#{scheme_name}.#{file_name}",
         "w"
