@@ -12,7 +12,7 @@
 	.typ { color: #<%= @base["09"]["hex"] %> }  /* a type name */
 	.lit { color: #<%= @base["0C"]["hex"] %> }  /* a literal value */
 	/* punctuation, lisp open bracket, lisp close bracket */
-	.pun, .opn, .clo { color: #660 }
+	.pun, .opn, .clo { color: #<%= @base["0F"]["hex"] %> }
 	.tag { color: #<%= @base["03"]["hex"] %> }  /* a markup tag name */
 	.atn { color: #<%= @base["03"]["hex"] %> }  /* a markup attribute name */
 	.atv { color: #<%= @base["0B"]["hex"] %> }  /* a markup attribute value */
@@ -27,14 +27,14 @@
 	.com { color: #<%= @base["03"]["hex"] %>; font-style: italic }
 	.typ { color: #<%= @base["09"]["hex"] %>; font-weight: bold }
 	.lit { color: #<%= @base["0C"]["hex"] %> }
-	.pun, .opn, .clo { color: #440 }
+	.pun, .opn, .clo { color: #<%= @base["0F"]["hex"] %> }
 	.tag { color: #<%= @base["03"]["hex"] %>; font-weight: bold }
 	.atn { color: #<%= @base["03"]["hex"] %> }
 	.atv { color: #<%= @base["0B"]["hex"] %> }
 }
 
 /* Put a border around prettyprinted code snippets. */
-pre.prettyprint { padding: 10px; border: 1px solid #888; line-height: 1.5; font-size: 12px; font-family: Menlo, Monaco, Consolas, monospace; background: #<%= @base["00"]["hex"] %>; }
+pre.prettyprint { padding: 10px; border: 1px solid #<%= @base["04"]["hex"] %>; line-height: 1.5; font-size: 12px; font-family: Menlo, Monaco, Consolas, monospace; background: #<%= @base["00"]["hex"] %>; }
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
