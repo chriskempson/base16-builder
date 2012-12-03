@@ -6,31 +6,31 @@
 .pln { color: #<%= @base["03"]["hex"] %> }  /* plain text */
 
 @media screen {
-  .str { color: #<%= @base["0B"]["hex"] %> }  /* string content */
-  .kwd { color: #<%= @base["08"]["hex"] %> }  /* a keyword */
-  .com { color: #<%= @base["03"]["hex"] %> }  /* a comment */
-  .typ { color: #<%= @base["09"]["hex"] %> }  /* a type name */
-  .lit { color: #<%= @base["0C"]["hex"] %> }  /* a literal value */
-  /* punctuation, lisp open bracket, lisp close bracket */
-  .pun, .opn, .clo { color: #660 }
-  .tag { color: #<%= @base["03"]["hex"] %> }  /* a markup tag name */
-  .atn { color: #<%= @base["03"]["hex"] %> }  /* a markup attribute name */
-  .atv { color: #<%= @base["0B"]["hex"] %> }  /* a markup attribute value */
-  .dec, .var { color: #<%= @base["08"]["hex"] %> }  /* a declaration; a variable name */
-  .fun { color: #<%= @base["0D"]["hex"] %> }  /* a function name */
+	.str { color: #<%= @base["0B"]["hex"] %> }  /* string content */
+	.kwd { color: #<%= @base["08"]["hex"] %> }  /* a keyword */
+	.com { color: #<%= @base["03"]["hex"] %> }  /* a comment */
+	.typ { color: #<%= @base["09"]["hex"] %> }  /* a type name */
+	.lit { color: #<%= @base["0C"]["hex"] %> }  /* a literal value */
+	/* punctuation, lisp open bracket, lisp close bracket */
+	.pun, .opn, .clo { color: #660 }
+	.tag { color: #<%= @base["03"]["hex"] %> }  /* a markup tag name */
+	.atn { color: #<%= @base["03"]["hex"] %> }  /* a markup attribute name */
+	.atv { color: #<%= @base["0B"]["hex"] %> }  /* a markup attribute value */
+	.dec, .var { color: #<%= @base["08"]["hex"] %> }  /* a declaration; a variable name */
+	.fun { color: #<%= @base["0D"]["hex"] %> }  /* a function name */
 }
 
 /* Use higher contrast and text-weight for printable form. */
 @media print, projection {
-  .str { color: #060 }
-  .kwd { color: #006; font-weight: bold }
-  .com { color: #600; font-style: italic }
-  .typ { color: #404; font-weight: bold }
-  .lit { color: #044 }
-  .pun, .opn, .clo { color: #440 }
-  .tag { color: #006; font-weight: bold }
-  .atn { color: #404 }
-  .atv { color: #060 }
+	.str { color: #<%= @base["0B"]["hex"] %> }
+	.kwd { color: #<%= @base["08"]["hex"] %>; font-weight: bold }
+	.com { color: #<%= @base["03"]["hex"] %>; font-style: italic }
+	.typ { color: #<%= @base["09"]["hex"] %>; font-weight: bold }
+	.lit { color: #<%= @base["0C"]["hex"] %> }
+	.pun, .opn, .clo { color: #440 }
+	.tag { color: #<%= @base["03"]["hex"] %>; font-weight: bold }
+	.atn { color: #<%= @base["03"]["hex"] %> }
+	.atv { color: #<%= @base["0B"]["hex"] %> }
 }
 
 /* Put a border around prettyprinted code snippets. */
