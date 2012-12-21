@@ -6,7 +6,7 @@ require "yaml"
 require "erb"
 
 class Theme
-  
+
   attr_accessor :template
 
   def initialize
@@ -16,15 +16,15 @@ class Theme
   end
 
   def build(scheme_file)
-    
-    if scheme_file then 
+
+    if scheme_file then
       build_single_scheme(scheme_file)
-    else 
+    else
       build_all_schemes
     end
-    
+
   end
-  
+
   def build_all_schemes
     scheme_files = read_scheme_dir
 
@@ -32,7 +32,7 @@ class Theme
       build_single_scheme(scheme_file)
     end
   end
-  
+
   def build_single_scheme(scheme_file)
     puts scheme_file
     scheme_data = read_scheme_file(scheme_file)
@@ -41,7 +41,7 @@ class Theme
   end
 
   def read_scheme_file(scheme_file)
-    scheme_file = @scheme_dir + "/#{scheme_file}" 
+    scheme_file = @scheme_dir + "/#{scheme_file}"
 
     begin
       YAML.load_file(scheme_file)
@@ -49,10 +49,10 @@ class Theme
        abort(read_error_message(scheme_file))
     end
   end
-  
+
   def read_scheme_dir
     Dir.chdir(@scheme_dir) do
-      
+
       begin
         Dir.glob("*.yml")
       rescue StandardError
@@ -63,7 +63,7 @@ class Theme
 
   def read_template_dir
     Dir.chdir(@template_dir) do
-      
+
       begin
         Dir.glob("**/*.erb")
       rescue StandardError
@@ -73,25 +73,25 @@ class Theme
   end
 
   def read_template_file(template_file)
-    template_file = @template_dir + "/#{template_file}" 
-     
+    template_file = @template_dir + "/#{template_file}"
+
     begin
       File.open(template_file).read
     rescue StandardError
        abort(read_error_message(template_file))
     end
   end
-  
+
   def populate_template_variables(scheme_data)
     # Define ERB vars
     @scheme = scheme_data["scheme"]
     @author = scheme_data["author"]
     @slug = slug(scheme_data["scheme"])
-    
+
     # Define ERB color vars
     @base = {}
     [
-      "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", 
+      "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B",
       "0C", "0D", "0E", "0F"
     ].each do |key|
       hex = scheme_data["base" + key];
@@ -103,74 +103,74 @@ class Theme
       }
     end
   end
-  
+
   def create_output_files
-    # Read each 
+    # Read each
     read_template_dir.each do |template_file|
       puts "  - " + template_file # Show which file we are parsing
-      
+
       # Grab the results of the parsed ERB file
       contents = parse_template_file(template_file)
 
       write_output_file(template_file, contents)
     end
   end
-  
+
   def parse_template_file(template_file)
     # Define ERB vars
     @uuid = SecureRandom.uuid
-    
+
     template_contents = read_template_file(template_file)
     parsed = ERB.new(template_contents)
-    
+
     return parsed.result(binding)
   end
-  
+
   def write_output_file(template_file, contents)
     dir_name = File.dirname(template_file);
     file_name = File.basename(template_file, ".erb");
     scheme_name = slug(@scheme)
 
     make_dir("#{@output_dir}/#{dir_name}")
-    
+
     # If the filename starts with a dash, we use the dash to separate
     delimiter = file_name.starts_with?("-") ? "" : "."
 
     output_file = File.open(
       "#{@output_dir}/#{dir_name}/base16-#{scheme_name}#{delimiter}#{file_name}",
       "w"
-    ) 
-    
+    )
+
     output_file.write(contents)
   end
-  
+
   def make_dir(name)
-    if FileTest::directory?(name) 
+    if FileTest::directory?(name)
       return
     end
     Dir::mkdir(name)
   end
-  
+
   def slug(string)
     string.downcase.strip.gsub(' ', '.').gsub(/[^\w-]/, '')
   end
-  
+
   def to_dhex(hex)
     hex.split(//).map {|char| char + char}.join
   end
-  
+
   def to_rgb(hex)
     hex.scan(/../).map {|color| color.to_i(16)}
   end
-  
+
   def to_srgb(hex)
     hex.scan(/../).map {|color| color.to_i(16).to_f / 255 }
   end
-  
+
   def split_by_slash(hex)
     hex.scan(/.{1,2}/).join('/')
   end
-  
+
   def read_error_message(file)
     "Error reading #{file}"
   end
