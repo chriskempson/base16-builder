@@ -137,7 +137,7 @@ class Theme
     delimiter = file_name.starts_with?("-") ? "" : "."
 
     output_file = File.open(
-      "#{@output_dir}/#{dir_name}/base16-#{scheme_name}#{delimiter}#{file_name}",
+      "#{@output_dir}/#{dir_name}/#{scheme_name}#{delimiter}#{file_name}",
       "w"
     )
 
