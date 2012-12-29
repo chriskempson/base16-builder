@@ -175,7 +175,11 @@ call <SID>hi("Type",         s:gui09, "", s:cterm09, "", "none")
 call <SID>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "")
 
 " Spelling Highlighting
-call <SID>hi("SpellBad",     s:gui00, s:gui08, s:cterm00, s:cterm08, "")
+if has('gui_running')
+	call <SID>hi("SpellBad", s:gui00, s:gui08, s:cterm00, "", "undercurl")
+else
+	call <SID>hi("SpellBad", s:gui00, s:gui08, s:cterm00, s:cterm08, "")
+endif
 "call <SID>hi("SpellCap",    s:gui00, s:gui08, s:cterm00, s:cterm08, "")
 "call <SID>hi("SpellRare",   s:gui00, s:gui08, s:cterm00, s:cterm08, "")
 "call <SID>hi("SpellLocal",  s:gui00, s:gui08, s:cterm00, s:cterm08, "")
