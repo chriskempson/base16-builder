@@ -6,13 +6,14 @@ require "yaml"
 require "erb"
 
 class Theme
+  BASE_PATH = File.dirname(__FILE__)
   
   attr_accessor :template
 
   def initialize
-    @scheme_dir = "schemes"
-    @template_dir = "templates"
-    @output_dir = "output"
+    @scheme_dir = File.join(BASE_PATH, "schemes")
+    @template_dir = File.join(BASE_PATH, "templates")
+    @output_dir = File.join(BASE_PATH, "output")
   end
 
   def build(scheme_file)
@@ -41,45 +42,27 @@ class Theme
   end
 
   def read_scheme_file(scheme_file)
-    scheme_file = @scheme_dir + "/#{scheme_file}" 
-
-    begin
-      YAML.load_file(scheme_file)
-    rescue StandardError
-       abort(read_error_message(scheme_file))
-    end
+    YAML.load_file(scheme_file)
+  rescue StandardError
+    abort(read_error_message(scheme_file))
   end
   
   def read_scheme_dir
-    Dir.chdir(@scheme_dir) do
-      
-      begin
-        Dir.glob("*.yml")
-      rescue StandardError
-        abort(read_error_message(scheme_dir))
-      end
-    end
+    Dir.glob(File.join(@scheme_dir, '**', '*.yml'))
+  rescue StandardError
+    abort(read_error_message(scheme_dir))
   end
 
   def read_template_dir
-    Dir.chdir(@template_dir) do
-      
-      begin
-        Dir.glob("**/*.erb")
-      rescue StandardError
-        abort(read_error_message(@template_dir))
-      end
-    end
+    Dir.glob(File.join(@template_dir, '**', '*.erb'))
+  rescue StandardError
+    abort(read_error_message(@template_dir))
   end
 
   def read_template_file(template_file)
-    template_file = @template_dir + "/#{template_file}" 
-     
-    begin
-      File.open(template_file).read
-    rescue StandardError
-       abort(read_error_message(template_file))
-    end
+    File.read(template_file)
+  rescue StandardError
+    abort(read_error_message(template_file))
   end
   
   def populate_template_variables(scheme_data)
@@ -127,21 +110,21 @@ class Theme
   end
   
   def write_output_file(template_file, contents)
-    dir_name = File.dirname(template_file);
-    file_name = File.basename(template_file, ".erb");
+    dir_name = File.basename(File.dirname(template_file))
+    file_name = File.basename(template_file, ".erb")
     scheme_name = slug(@scheme)
 
-    make_dir("#{@output_dir}/#{dir_name}")
+    output_dir = File.join(@output_dir, dir_name)
+    make_dir(output_dir)
     
     # If the filename starts with a dash, we use the dash to separate
     delimiter = file_name.starts_with?("-") ? "" : "."
 
-    output_file = File.open(
-      "#{@output_dir}/#{dir_name}/base16-#{scheme_name}#{delimiter}#{file_name}",
-      "w"
-    ) 
-    
+    output_filename = File.join(output_dir,
+                                "base16-#{scheme_name}#{delimiter}#{file_name}")
+    output_file = File.open(output_filename, "w")
     output_file.write(contents)
+    output_file.close
   end
   
   def make_dir(name)
