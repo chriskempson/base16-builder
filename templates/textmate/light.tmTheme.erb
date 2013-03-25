@@ -406,32 +406,6 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Diff Header</string>
-			<key>scope</key>
-			<string>meta.diff.header</string>
-			<key>settings</key>
-			<dict>
-				<key>background</key>
-				<string>#<%= @base["07"]["hex"] %></string>
-				<key>foreground</key>
-				<string>#<%= @base["0D"]["hex"] %></string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Diff Range</string>
-			<key>scope</key>
-			<string>meta.diff.range</string>
-			<key>settings</key>
-			<dict>
-				<key>background</key>
-				<string>#<%= @base["07"]["hex"] %></string>
-				<key>foreground</key>
-				<string>#<%= @base["0C"]["hex"] %></string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Inserted</string>
 			<key>scope</key>
 			<string>markup.inserted</string>
@@ -498,6 +472,45 @@
 			<dict>
 				<key>foreground</key>
 				<string>#<%= @base["0F"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>diff.deleted</string>
+			<key>scope</key>
+			<string>markup.deleted</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#<%= @base["08"]["hex"] %></string>
+				<key>background</key>
+				<string>#<%= @base["07"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>diff.inserted</string>
+			<key>scope</key>
+			<string>markup.inserted</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#<%= @base["0B"]["hex"] %></string>
+				<key>background</key>
+				<string>#<%= @base["07"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>diff.changed</string>
+			<key>scope</key>
+			<string>markup.changed</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#<%= @base["0E"]["hex"] %></string>
+				<key>background</key>
+				<string>#<%= @base["07"]["hex"] %></string>
 			</dict>
 		</dict>
 	</array>
