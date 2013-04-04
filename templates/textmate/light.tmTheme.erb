@@ -1,7 +1,7 @@
 <%
 # TextMate Light Template
 # Chris Kempson (http://chriskempson.com)
-  
+
 %><?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -46,13 +46,13 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Text</string>
+			<string>Variable Parameters</string>
 			<key>scope</key>
 			<string>variable.parameter.function</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#<%= @base["02"]["hex"] %></string>
+				<string>#<%= @base["08"]["hex"] %></string>
 			</dict>
 		</dict>
 		<dict>
@@ -125,7 +125,7 @@
 			<key>name</key>
 			<string>Functions</string>
 			<key>scope</key>
-			<string>entity.name.function, meta.function-call, meta.require</string>
+			<string>support.function, entity.name.function, meta.function-call, meta.require</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -167,20 +167,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Support</string>
-			<key>scope</key>
-			<string>support.function</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#<%= @base["0C"]["hex"] %></string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Strings, Inherited Class</string>
 			<key>scope</key>
-			<string>string, constant.other.symbol, entity.other.inherited-class</string>
+			<string>string, punctuation.definition.string.begin, punctuation.definition.string.end, constant.other.symbol, entity.other.inherited-class</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
