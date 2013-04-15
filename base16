@@ -177,9 +177,7 @@ usage: base16               build all schemes
 EOF
 
 case ARGV[0]
-  when "--help"
-      puts help_message
-  when "-h"
+  when "-h", "--help"
       puts help_message
   else
     Theme.new.build(ARGV[0])
