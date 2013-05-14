@@ -4,6 +4,7 @@
 require "securerandom"
 require "yaml"
 require "erb"
+require "base64"
 
 class Theme
   BASE_PATH = File.dirname(__FILE__)
