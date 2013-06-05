@@ -81,6 +81,7 @@ class Theme
       hex = scheme_data["base" + key];
       @base[key] = {
         "hex" => hex,
+        "hexbgr" => to_hex_bgr(hex),
         "dhex" => to_dhex(hex),
         "rgb" => to_rgb(hex),
         "srgb" => to_srgb(hex)
@@ -137,6 +138,10 @@ class Theme
   
   def slug(string)
     string.downcase.strip.gsub(' ', '.').gsub(/[^\w-]/, '')
+  end
+
+  def to_hex_bgr(hex)
+    hex.scan(/../).reverse.join
   end
   
   def to_dhex(hex)
