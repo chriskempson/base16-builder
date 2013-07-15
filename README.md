@@ -13,6 +13,7 @@ Build only the "default" theme
 ## Templates
 * BBEdit (TextWrangler)
 * Chrome DevTools
+* CodeMirror
 * Emacs
 * Escape Code Shell Script
 * Gedit
@@ -36,7 +37,7 @@ Build only the "default" theme
 * [joedynamite](https://github.com/joedynamite) - Xcode 4
 * [robloach](https://github.com/robloach) - Geany
 * [geoffstokes](https://github.com/geoffstokes) - Windows Command Prompt, MinTTY
-* [idleberg](https://github.com/idleberg) - Chrome DevTools, Gedit, Notepad++
+* [idleberg](https://github.com/idleberg) - Chrome DevTools, CodeMirror, Gedit, highlight.js, Notepad++
 
 ## License
 Base16 Builder is released under the [MIT License](https://github.com/chriskempson/base16-builder/blob/master/LICENSE.md)

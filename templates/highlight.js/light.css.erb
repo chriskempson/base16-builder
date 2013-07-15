@@ -1,0 +1,57 @@
+/*
+
+    Name:       Base16 <%= @scheme %> Light
+    Author:     <%= @author %>
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+.base16-<%= @slug %>-light-comment, pre .comment, pre .title {
+  color: #<%= @base["03"]["hex"] %>;
+}
+
+.base16-<%= @slug %>-light-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #<%= @base["08"]["hex"] %>;
+}
+
+.base16-<%= @slug %>-light-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #<%= @base["09"]["hex"] %>;
+}
+
+.base16-<%= @slug %>-light-yellow, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #<%= @base["0A"]["hex"] %>;
+}
+
+.base16-<%= @slug %>-light-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #<%= @base["0B"]["hex"] %>;
+}
+
+.base16-<%= @slug %>-light-aqua, pre .css .hexcolor {
+  color: #<%= @base["0C"]["hex"] %>;
+}
+
+.base16-<%= @slug %>-light-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #<%= @base["0D"]["hex"] %>;
+}
+
+.base16-<%= @slug %>-light-purple, pre .keyword, pre .javascript .function {
+  color: #<%= @base["0E"]["hex"] %>;
+}
+
+pre code {
+  display: block;
+  background: #<%= @base["07"]["hex"] %>;
+  color: #<%= @base["02"]["hex"] %>;
+  padding: 0.5em;
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
+}
