@@ -18,6 +18,7 @@ Build only the "default" theme
 * Escape Code Shell Script
 * Gedit
 * Gnome Terminal
+* highlight.js
 * HTML Preview
 * iTerm 2
 * MinTTY 
