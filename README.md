@@ -1,6 +1,6 @@
 # Base16 Builder
-Easily build color variations of Base16 with YAML scheme definitions and ERB templates.  
-See the [Base16](https://github.com/chriskempson/base16) repository for more information.  
+Easily build color variations of Base16 with YAML scheme definitions and ERB templates.
+See the [Base16](https://github.com/chriskempson/base16) repository for more information.
 Requires Ruby 1.9 or greater.
 
 ## Usage
@@ -21,15 +21,16 @@ Build only the "default" theme
 * highlight.js
 * HTML Preview
 * iTerm 2
-* MinTTY 
+* MinTTY
 * Mou
 * Notepad++
 * Rouge
+* Textadept
 * TextMate (Sublime Text)
 * Vim
 * Windows Command Prompt
 * Xcode 4
-* XFCE4 Terminal 
+* XFCE4 Terminal
 
 ## Contributors
 * [chriskempson](https://github.com/chriskempson) - HTML Preview, Vim, TextMate, iTerm 2, XFCE4 Terminal, Mou, Escape Code Shell Script, Gnome Terminal, BBEdit
@@ -39,6 +40,7 @@ Build only the "default" theme
 * [robloach](https://github.com/robloach) - Geany
 * [geoffstokes](https://github.com/geoffstokes) - Windows Command Prompt, MinTTY
 * [idleberg](https://github.com/idleberg) - Chrome DevTools, CodeMirror, Gedit, highlight.js, Notepad++
+* [rgieseke](https://github.com/rgieseke) - Textadept
 
 ## License
 Base16 Builder is released under the [MIT License](https://github.com/chriskempson/base16-builder/blob/master/LICENSE.md)
