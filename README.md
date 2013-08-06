@@ -25,6 +25,7 @@ Build only the "default" theme
 * Mou
 * Notepad++
 * prettify.js
+* Rainbow
 * Rouge
 * TextMate (Sublime Text)
 * Vim
