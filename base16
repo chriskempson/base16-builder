@@ -106,7 +106,9 @@ class Theme
     @uuid = SecureRandom.uuid
     
     template_contents = read_template_file(template_file)
-    parsed = ERB.new(template_contents)
+    safe_level = nil
+    trim_mode = '-'
+    parsed = ERB.new(template_contents, safe_level, trim_mode)
     
     return parsed.result(binding)
   end
