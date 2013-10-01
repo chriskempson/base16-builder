@@ -80,12 +80,19 @@ buffer.caret_line_back = property_int['color.base06']
 buffer:set_fold_margin_colour(true, property_int['color.base07'])
 buffer:set_fold_margin_hi_colour(true, property_int['color.base07'])
 
--- Fold Margin Markers.
-local c = _SCINTILLA.constants
-buffer.marker_fore[c.SC_MARKNUM_FOLDEROPEN] = property_int['color.base03']
-buffer.marker_back[c.SC_MARKNUM_FOLDEROPEN] = property_int['color.base03']
-buffer.marker_fore[c.SC_MARKNUM_FOLDER] = property_int['color.base03']
-buffer.marker_back[c.SC_MARKNUM_FOLDER] = property_int['color.base03']
+-- Markers.
+local MARK_BOOKMARK, t_run = textadept.bookmarks.MARK_BOOKMARK, textadept.run
+--buffer.marker_fore[MARK_BOOKMARK] = property_int['color.base05']
+buffer.marker_back[MARK_BOOKMARK] = property_int['color.base0D']
+--buffer.marker_fore[t_run.MARK_WARNING] = property_int['color.base05']
+buffer.marker_back[t_run.MARK_WARNING] = property_int['color.base0A']
+--buffer.marker_fore[t_run.MARK_ERROR] = property_int['color.base05']
+buffer.marker_back[t_run.MARK_ERROR] = property_int['color.base08']
+for i = 25, 31 do -- fold margin markers
+  buffer.marker_fore[i] = property_int['color.base07']
+  buffer.marker_back[i] = property_int['color.base04']
+  buffer.marker_back_selected[i] = property_int['color.base05']
+end
 
 -- Long Lines.
 buffer.edge_colour = property_int['color.base06']
