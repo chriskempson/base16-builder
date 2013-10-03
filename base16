@@ -145,7 +145,7 @@ class Theme
   end
   
   def to_dhex(hex)
-    hex.split(//).map {|char| char + char}.join
+    hex.scan(/../).map {|color| color + color}.join
   end
   
   def to_rgb(hex)
