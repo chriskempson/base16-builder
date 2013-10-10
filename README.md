@@ -10,6 +10,9 @@ Build all schemes
     > ./base16 default.yml
 Build only the "default" theme
 
+    > ./base16 https://awesome-schemes.com/my-scheme.yml
+Build a scheme stored on some webspace.
+
 ## Templates
 * BBEdit (TextWrangler)
 * Chrome DevTools

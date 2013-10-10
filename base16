@@ -3,6 +3,7 @@
 
 require "securerandom"
 require "yaml"
+require "open-uri"
 require "erb"
 require "base64"
 
@@ -43,7 +44,7 @@ class Theme
   end
 
   def read_scheme_file(scheme_file)
-    YAML.load_file(scheme_file)
+    YAML.load open(scheme_file)
   rescue StandardError
     abort(read_error_message(scheme_file))
   end
