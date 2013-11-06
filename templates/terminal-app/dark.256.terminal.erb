@@ -88,8 +88,8 @@ bplist = "bplist00\xD4\x01\x02\x03\x04\x05\x06\x15\x16X$versionX$objectsY$archiv
 	<real>2.02</real>
 	<key>SelectionColor</key>
 	<data>
-	<%= Base64.encode64(sprintf(bplist, @base["05"]["srgb"][0], @base["05"]["srgb"][1], @base["05"]["srgb"][2])).gsub("\n", "\n\t").strip %>
-	</data>
+    <%= Base64.encode64(sprintf(bplist, @base["03"]["srgb"][0], @base["03"]["srgb"][1], @base["03"]["srgb"][2])).gsub("\n", "\n\t").strip %>
+    </data>
 	<key>TextBoldColor</key>
 	<data>
 	<%= Base64.encode64(sprintf(bplist, @base["05"]["srgb"][0], @base["05"]["srgb"][1], @base["05"]["srgb"][2])).gsub("\n", "\n\t").strip %>
