@@ -6,6 +6,7 @@ require "yaml"
 require "open-uri"
 require "erb"
 require "base64"
+require "fileutils"
 
 class Theme
   BASE_PATH = File.dirname(__FILE__)
@@ -113,7 +114,7 @@ class Theme
   end
   
   def write_output_file(template_file, contents)
-    dir_name = File.basename(File.dirname(template_file))
+    dir_name = File.dirname(template_file).sub(@template_dir, '')
     file_name = File.basename(template_file, ".erb")
     scheme_name = slug(@scheme)
 
@@ -134,7 +135,7 @@ class Theme
     if FileTest::directory?(name) 
       return
     end
-    Dir::mkdir(name)
+    FileUtils.mkdir_p(name)
   end
   
   def slug(string)
