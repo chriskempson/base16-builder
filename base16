@@ -124,8 +124,12 @@ class Theme
     # If the filename starts with a dash, we use the dash to separate
     delimiter = file_name.starts_with?("-") ? "" : "."
 
-    output_filename = File.join(output_dir,
-                                "base16-#{scheme_name}#{delimiter}#{file_name}")
+    if file_name.sub!('%SCHEME%', "base16-#{scheme_name}")
+      output_filename = File.join(output_dir, file_name)
+    else  
+      output_filename = File.join(output_dir,
+                                  "base16-#{scheme_name}#{delimiter}#{file_name}")
+    end
     output_file = File.open(output_filename, "w")
     output_file.write(contents)
     output_file.close
