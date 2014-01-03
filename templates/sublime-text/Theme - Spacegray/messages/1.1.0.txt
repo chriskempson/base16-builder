@@ -1,0 +1,36 @@
+# New in Spacegray 1.1
+
+* Two new theme variations added: *Spacegray Light* and *Spacegray Eighties*
+* A lot of minor visual and behavioral fixes
+
+*Note: New theme variations may be a little bit rough around edges, I'll be pushing updates to fix existing issues in the nearest future. If you have any suggestions for improvements and fixes, please feel free to add issues at GitHub: http://github.com/kkga/spacegray/issues*
+
+***
+
+# How to activate new variations
+
+## Spacegray Light
+
+Light variation based on Base16 Ocean Light color scheme.
+
+*Example settings for Spacegray Light*
+
+    {
+      "theme": "Spacegray Light.sublime-theme",
+      "color_scheme": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme"
+    }
+
+
+## Spacegray Eighties
+
+A variation based on Base16 Eighties Dark color scheme.
+
+*Example settings for Spacegray Eighties*
+
+    {
+      "theme": "Spacegray Eighties.sublime-theme",
+      "color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme"
+    }
+
+
+*Note: Don't forget to restart Sublime Text after activating the theme.*
