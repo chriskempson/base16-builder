@@ -141,6 +141,19 @@ class Theme
     string.downcase.strip.gsub(' ', '.').gsub(/[^\w-]/, '')
   end
 
+  def to_hex(rgb)
+    hex = ""
+    rgb.each do |component|
+      c = component.to_s(16)
+      if component < 10
+        hex << "0#{c}"
+      else
+        hex << c
+      end
+    end     
+    hex
+  end
+
   def to_hex_bgr(hex)
     hex.scan(/../).reverse.join
   end
