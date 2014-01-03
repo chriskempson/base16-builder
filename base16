@@ -57,7 +57,7 @@ class Theme
   end
 
   def read_template_dir
-    Dir.glob(File.join(@template_dir, '**', '*.erb'))
+    Dir.glob(File.join(@template_dir, '**', '*')).select { |f| File.file?(f) }
   rescue StandardError
     abort(read_error_message(@template_dir))
   end
@@ -93,14 +93,25 @@ class Theme
   
   def create_output_files
     # Read each 
-    read_template_dir.each do |template_file|
-      puts "  - " + template_file # Show which file we are parsing
-      
-      # Grab the results of the parsed ERB file
-      contents = parse_template_file(template_file)
-
-      write_output_file(template_file, contents)
+    read_template_dir.each do |file|
+      if File.extname(file) != '.erb'
+        copy_file(file)
+      else
+        puts "  - " + file # Show which file we are parsing        
+        # Grab the results of the parsed ERB file
+        contents = parse_template_file(file)
+        write_output_file(file, contents)
+      end
     end
+  end
+
+  def copy_file(file)
+    dir_name = File.dirname(file).sub(@template_dir, '')
+    file_name = File.basename(file)
+    output_dir = File.join(@output_dir, dir_name)
+    make_dir(output_dir)
+    output_filename = File.join(output_dir, file_name)
+    FileUtils.cp(file, output_filename)
   end
   
   def parse_template_file(template_file)
