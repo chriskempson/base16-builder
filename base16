@@ -88,8 +88,31 @@ class Theme
         "srgb" => to_srgb(hex)
       }
     end
+
+    @terminal_colors = terminal_colors_map
   end
   
+  def terminal_colors_map
+    {
+      :black          => @base["00"],
+      :blue           => @base["0D"],
+      :green          => @base["0B"],
+      :cyan           => @base["0C"],
+      :red            => @base["08"],
+      :magenta        => @base["0E"],
+      :yellow         => @base["0A"],
+      :white          => @base["05"],
+      :bright_black   => @base["03"],
+      :bright_blue    => @base["04"],
+      :bright_green   => @base["01"],
+      :bright_cyan    => @base["0F"],
+      :bright_red     => @base["09"],
+      :bright_magenta => @base["06"],
+      :bright_yellow  => @base["02"],
+      :bright_white   => @base["07"]
+    }
+  end
+
   def create_output_files
     # Read each 
     read_template_dir.each do |template_file|
