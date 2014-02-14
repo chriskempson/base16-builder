@@ -1,3 +1,7 @@
+This my personal fork of Base16 builder, with my own colorschemes. 
+
+For the original version, please visit the link below. 
+
 # Base16 Builder
 Easily build color variations of Base16 with YAML scheme definitions and ERB templates.
 See the [Base16](https://github.com/chriskempson/base16) repository for more information.
