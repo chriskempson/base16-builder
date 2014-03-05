@@ -6,6 +6,7 @@ require "yaml"
 require "open-uri"
 require "erb"
 require "base64"
+require "fileutils"
 
 class Theme
   BASE_PATH = File.dirname(__FILE__)
@@ -56,7 +57,7 @@ class Theme
   end
 
   def read_template_dir
-    Dir.glob(File.join(@template_dir, '**', '*.erb'))
+    Dir.glob(File.join(@template_dir, '**', '*')).select { |f| File.file?(f) }
   rescue StandardError
     abort(read_error_message(@template_dir))
   end
@@ -92,14 +93,25 @@ class Theme
   
   def create_output_files
     # Read each 
-    read_template_dir.each do |template_file|
-      puts "  - " + template_file # Show which file we are parsing
-      
-      # Grab the results of the parsed ERB file
-      contents = parse_template_file(template_file)
-
-      write_output_file(template_file, contents)
+    read_template_dir.each do |file|
+      if File.extname(file) != '.erb'
+        copy_file(file)
+      else
+        puts "  - " + file # Show which file we are parsing        
+        # Grab the results of the parsed ERB file
+        contents = parse_template_file(file)
+        write_output_file(file, contents)
+      end
     end
+  end
+
+  def copy_file(file)
+    dir_name = File.dirname(file).sub(@template_dir, '')
+    file_name = File.basename(file)
+    output_dir = File.join(@output_dir, dir_name)
+    make_dir(output_dir)
+    output_filename = File.join(output_dir, file_name)
+    FileUtils.cp(file, output_filename)
   end
   
   def parse_template_file(template_file)
@@ -113,7 +125,7 @@ class Theme
   end
   
   def write_output_file(template_file, contents)
-    dir_name = File.basename(File.dirname(template_file))
+    dir_name = File.dirname(template_file).sub(@template_dir, '')
     file_name = File.basename(template_file, ".erb")
     scheme_name = slug(@scheme)
 
@@ -123,8 +135,12 @@ class Theme
     # If the filename starts with a dash, we use the dash to separate
     delimiter = file_name.starts_with?("-") ? "" : "."
 
-    output_filename = File.join(output_dir,
-                                "base16-#{scheme_name}#{delimiter}#{file_name}")
+    if file_name.sub!('%SCHEME%', "base16-#{scheme_name}")
+      output_filename = File.join(output_dir, file_name)
+    else  
+      output_filename = File.join(output_dir,
+                                  "base16-#{scheme_name}#{delimiter}#{file_name}")
+    end
     output_file = File.open(output_filename, "w")
     output_file.write(contents)
     output_file.close
@@ -134,11 +150,24 @@ class Theme
     if FileTest::directory?(name) 
       return
     end
-    Dir::mkdir(name)
+    FileUtils.mkdir_p(name)
   end
   
   def slug(string)
     string.downcase.strip.gsub(' ', '.').gsub(/[^\w-]/, '')
+  end
+
+  def to_hex(rgb)
+    hex = ""
+    rgb.each do |component|
+      c = component.to_s(16)
+      if component < 10
+        hex << "0#{c}"
+      else
+        hex << c
+      end
+    end     
+    hex
   end
 
   def to_hex_bgr(hex)
