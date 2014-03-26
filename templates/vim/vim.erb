@@ -50,6 +50,12 @@ else
   let s:cterm0F = "14"
 endif
 
+if !has('gui')
+  if exists("g:load_base16_shell") && g:load_base16_shell == 1
+    execute "silent !".g:base16_shell_path."/base16-<%= slug(@scheme) %>.dark.sh"
+  endif
+endif
+
 " Theme setup
 hi clear
 syntax reset
