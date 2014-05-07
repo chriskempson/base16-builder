@@ -4,14 +4,17 @@ See the [Base16](https://github.com/chriskempson/base16) repository for more inf
 Requires Ruby 1.9 or greater.
 
 ## Usage
-    > ./base16
-Build all schemes
+Build all schemes:
 
-    > ./base16 default.yml
-Build only the "default" theme
+    > ./base16
+
+Build only the "default" scheme:
+
+    > ./base16 schemes/default.yml
+
+Build a scheme stored on a remote host:
 
     > ./base16 https://awesome-schemes.com/my-scheme.yml
-Build a scheme stored on some webspace.
 
 ## Templates
 * Atom
