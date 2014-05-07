@@ -17,34 +17,50 @@ Build a scheme stored on a remote host:
     > ./base16 https://awesome-schemes.com/my-scheme.yml
 
 ## Templates
-* Atom
-* BBEdit (TextWrangler)
-* Chrome DevTools
-* CodeMirror
-* Emacs
-* Escape Code Shell Script
-* Gedit
-* Gnome Terminal
-* Guake
+* atom
+* bbedit
+* chrome-devtools
+* codemirror
+* console2
+* emacs
+* geany
+* gedit
+* gimp-palette
+* gnome-terminal
+* guake
 * highlight.js
-* HTML Preview
-* iTerm 2
-* Mate Terminal
-* MinTTY
-* Mou
-* MultiMarkdown Composer 2
-* Notepad++
+* idea
+* ipython-notebook
+* iterm2
+* konsole
+* mate-terminal
+* mintty
+* mmdc2
+* mou
+* notepad-plus-plus
 * prettify.js
-* Pygments
-* Rainbow
-* Rouge
-* Textadept
-* TextMate (Sublime Text)
-* Vim
-* Windows Command Prompt
-* Xcode 4
-* XFCE4 Terminal
-* Zathura
+* preview
+* prism
+* putty
+* pygments
+* qtcreator
+* rainbow
+* rouge
+* secure-shell
+* shell
+* terminal-app
+* terminator
+* termite
+* textadept
+* textmate
+* vconsole
+* vim
+* visual-studio
+* windows-command-prompt
+* xcode4
+* xfce4-terminal
+* xresources
+* zathura
 
 ## Contributors
 * [chriskempson](https://github.com/chriskempson) - HTML Preview, Vim, TextMate, iTerm 2, XFCE4 Terminal, Mou, Escape Code Shell Script, Gnome Terminal, BBEdit
