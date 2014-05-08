@@ -18,7 +18,7 @@ Build a scheme stored on a remote host:
 
 ## Templates
 * atom
-* bbedit
+* bbedit (TextWrangler)
 * chrome-devtools
 * codemirror
 * console2
@@ -52,7 +52,7 @@ Build a scheme stored on a remote host:
 * terminator
 * termite
 * textadept
-* textmate
+* textmate (Sublime Text)
 * vconsole
 * vim
 * visual-studio
