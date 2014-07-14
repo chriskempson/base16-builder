@@ -2,20 +2,21 @@
 # Base16 Builder (https://github.com/chriskempson/base16-builder)
 
 require "securerandom"
+require "fileutils"
 require "yaml"
 require "open-uri"
 require "erb"
 require "base64"
 
 class Theme
-  BASE_PATH = File.dirname(__FILE__)
+  BASE_PATH = File.expand_path( '..', File.dirname(__FILE__) )
 
   attr_accessor :template
 
   def initialize
-    @scheme_dir = File.join(BASE_PATH, "schemes")
-    @template_dir = File.join(BASE_PATH, "templates")
-    @output_dir = File.join(BASE_PATH, "output")
+    @scheme_dir = File.join(BASE_PATH, "conf")
+    @template_dir = File.join(BASE_PATH, "lib")
+    @output_dir = File.join(BASE_PATH, "tmp")
   end
 
   def build(scheme_file)
@@ -41,6 +42,10 @@ class Theme
     scheme_data = read_scheme_file(scheme_file)
     populate_template_variables(scheme_data)
     create_output_files
+  end
+
+  def remove_output_files
+    FileUtils.rm_rf(Dir.glob(File.join(@output_dir, '**')))
   end
 
   def read_scheme_file(scheme_file)
@@ -91,6 +96,8 @@ class Theme
   end
 
   def create_output_files
+    # Remove all files in tmp dir
+    remove_output_files
     # Read each
     read_template_dir.each do |template_file|
       puts "  - " + template_file # Show which file we are parsing
