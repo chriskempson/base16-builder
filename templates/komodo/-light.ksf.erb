@@ -1,0 +1,335 @@
+#    Name:       Base16 Ocean Dark
+#    Author:     Chris Kempson (http://chriskempson.com)
+
+#    Komodo template by Nathan Rijksen (https://github.com/Naatan)
+#    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+Version = 10
+
+Booleans = {'caretLineVisible': True, 'preferFixed': True, 'useSelFore': False}
+
+def RgbToBgr(rgb):
+    return sum(int(v) * (256 ** i) for i, v in enumerate(rgb))
+
+B00 = RgbToBgr([43, 48, 59])
+B01 = RgbToBgr([52, 61, 70])
+B02 = RgbToBgr([79, 91, 102])
+B03 = RgbToBgr([101, 115, 126])
+B04 = RgbToBgr([167, 173, 186])
+B05 = RgbToBgr([192, 197, 206])
+B06 = RgbToBgr([223, 225, 232])
+B07 = RgbToBgr([239, 241, 245])
+B08 = RgbToBgr([191, 97, 106])
+B09 = RgbToBgr([208, 135, 112])
+B0A = RgbToBgr([235, 203, 139])
+B0B = RgbToBgr([163, 190, 140])
+B0C = RgbToBgr([150, 181, 180])
+B0D = RgbToBgr([143, 161, 179])
+B0E = RgbToBgr([180, 142, 173])
+B0F = RgbToBgr([171, 121, 103])
+
+CommonStyles = {
+    'attribute name': {
+        'fore': B08
+    },
+    'attribute value': {
+        'fore': B0B
+    },
+    'bracebad': {
+        'fore': B06
+    },
+    'bracehighlight': {
+        'fore': B01,
+        'back': B06
+    },
+    'classes': {
+        'fore': B0A
+    },
+    'comments': {
+        'fore': B03,
+        'italic': True
+    },
+    'control characters': {
+        'fore': B09
+    },
+    'default_fixed': {
+        'back': B07,
+        'eolfilled': 0,
+        'face': 'DejaVu Sans Mono',
+        'fore': B02,
+        'hotspot': 0,
+        'italic': 0,
+        'size': 11,
+        'useFixed': 1,
+        'bold': 0
+    },
+    'default_proportional': {
+        'back': B07,
+        'eolfilled': 0,
+        'face': 'DejaVu Sans Mono',
+        'fore': B02,
+        'hotspot': 0,
+        'italic': 0,
+        'size': 11,
+        'useFixed': 0,
+        'bold': 0
+    },
+    'fold markers': {
+        'fore': B05,
+        'back': B07
+    },
+    'functions': {
+        'fore': B0D
+    },
+    'identifiers': {
+        'fore': B03
+    },
+    'indent guides': {
+        'fore': B06
+    },
+    'keywords': {
+        'fore': B0E
+    },
+    'keywords2': {
+        'fore': B0E
+    },
+    'linenumbers': {
+        'back': B06,
+        'fore': B04,
+        'size': 10,
+        'useFixed': True,
+        'bold': False
+    },
+    'numbers': {
+        'fore': B09
+    },
+    'operators': {
+        'fore': B0D
+    },
+    'preprocessor': {
+        'fore': B06
+    },
+    'regex': {
+        'fore': B0C
+    },
+    'stderr': {
+        'fore': B0F,
+    },
+    'stdin': {
+        'fore': B0F
+    },
+    'stdout': {
+        'fore': B0F
+    },
+    'stringeol': {
+        'back': B03,
+        'eolfilled': True
+    },
+    'strings': {
+        'fore': B0B
+    },
+    'tags': {
+        'fore': B0B
+    },
+    'variables': {
+        'fore': B08
+    }
+}
+
+LanguageStyles = {
+    'CSS': {
+        'ids': {
+            'fore': B0E
+        },
+        'values': {
+            'fore': B0B
+        }
+    },
+    'Diff': {
+        'additionline': {
+            'fore': B0B
+        },
+        'chunkheader': {
+            'fore': B05
+        },
+        'deletionline': {
+            'fore': B0F
+        },
+        'diffline': {
+            'fore': B0A
+        },
+        'fileline': {
+            'fore': B07
+        }
+    },
+    'Errors': {
+        'Error lines': {
+            'fore': B0F,
+            'hotspot': 1,
+            'italic': 1
+        }
+    },
+    'HTML': {
+        'attributes': {
+            'fore': B0B
+        },
+        'cdata': {
+            'fore': B09
+        }
+    },
+    'HTML5': {
+        'attributes': {
+            'fore': B0B
+        },
+        'cdata': {
+            'fore': B09
+        }
+    },
+    'XML': {
+        'attributes': {
+            'fore': B0B
+        },
+        'cdata': {
+            'fore': B09
+        },
+        'cdata content': {
+            'fore': B07
+        },
+        'cdata tags': {
+            'fore': B06
+        },
+        'xpath attributes': {
+            'fore': B0C
+        }
+    },
+    'JavaScript': {
+        'commentdockeyword': {
+            'fore': B04
+        },
+        'commentdockeyworderror': {
+            'fore': B0F
+        },
+        'globalclass': {
+            'fore': B0A
+        }
+    },
+    'PHP': {
+        'commentdockeyword': {
+            'fore': B04
+        },
+        'commentdockeyworderror': {
+            'fore': B0F
+        }
+    }
+}
+
+MiscLanguageSettings = {}
+
+Colors = {
+    'bookmarkColor': B02,
+    'callingLineColor': B06,
+    'caretFore': B04,
+    'caretLineBack': B06,
+    'changeMarginDeleted': B0F,
+    'changeMarginInserted': B0B,
+    'changeMarginReplaced': B0D,
+    'currentLineColor': B06,
+    'edgeColor': B06,
+    'foldMarginColor': B07,
+    'selBack': B04,
+    'selFore': B07,
+    'whitespaceColor': B06
+}
+
+Indicators = {
+    'collab_local_change': {
+        'alpha': 0,
+        'color': B0B,
+        'draw_underneath': False,
+        'style': 5
+    },
+    'collab_remote_change': {
+        'alpha': 120,
+        'color': B0A,
+        'draw_underneath': True,
+        'style': 7
+    },
+    'collab_remote_cursor_1': {
+        'alpha': 100,
+        'color': B0A,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_2': {
+        'alpha': 100,
+        'color': B09,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_3': {
+        'alpha': 100,
+        'color': B08,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_4': {
+        'alpha': 100,
+        'color': B0D,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_5': {
+        'alpha': 100,
+        'color': B0C,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'find_highlighting': {
+        'alpha': 100,
+        'color': B0C,
+        'draw_underneath': True,
+        'style': 7
+    },
+    'linter_error': {
+        'alpha': 100,
+        'color': B0F,
+        'draw_underneath': True,
+        'style': 0
+    },
+    'linter_warning': {
+        'alpha': 100,
+        'color': B0A,
+        'draw_underneath': True,
+        'style': 13
+    },
+    'multiple_caret_area': {
+        'alpha': 100,
+        'color': B04,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'soft_characters': {
+        'alpha': 100,
+        'color': B04,
+        'draw_underneath': False,
+        'style': 6
+    },
+    'tabstop_current': {
+        'alpha': 100,
+        'color': B04,
+        'draw_underneath': True,
+        'style': 7
+    },
+    'tabstop_pending': {
+        'alpha': 100,
+        'color': B03,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'tag_matching': {
+        'alpha': 100,
+        'color': B0A,
+        'draw_underneath': True,
+        'style': 7
+    }
+}
