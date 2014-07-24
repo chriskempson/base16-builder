@@ -1,0 +1,321 @@
+#    Name:       Base16 <%= @scheme %> (Dark)
+#    Author:     <%= @author %>
+
+#    Based on Komodo template by Nathan Rijksen (https://github.com/Naatan)
+#    Updated for Base16 builder by Jason Heeris (http://github.com/detly)
+#    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+Version = 11
+
+Booleans = {'caretLineVisible': True, 'preferFixed': True, 'useSelFore': False}
+
+<% for @num in 0..15
+    @base_string = "%02X" % @num
+    @full_string = "B%s = 0x%s" % [@base_string, @base[@base_string]["hexbgr"]] %><%= @full_string %>
+<% end %>
+
+CommonStyles = {
+    'attribute name': {
+        'fore': B09
+    },
+    'attribute value': {
+        'fore': B0B
+    },
+    'bracebad': {
+        'fore': B06
+    },
+    'bracehighlight': {
+        'fore': B07,
+        'back': B01
+    },
+    'classes': {
+        'fore': B0A
+    },
+    'comments': {
+        'fore': B04
+    },
+    'control characters': {
+        'fore': B09
+    },
+    'default_fixed': {
+        'face': 'DejaVu Sans Mono',
+        'italic': 0,
+        'size': 11,
+        'back': B00,
+        'eolfilled': 0,
+        'fore': B05,
+        'hotspot': 0,
+        'italic': 0,
+        'useFixed': 1,
+        'bold': 0
+    },
+    'default_proportional': {
+        'face': 'DejaVu Sans Mono',
+        'italic': 0,
+        'size': 11,
+        'back': B00,
+        'eolfilled': 0,
+        'fore': B05,
+        'hotspot': 0,
+        'italic': 0,
+        'useFixed': 0,
+        'bold': 0
+    },
+    'fold markers': {
+        'fore': B03,
+        'back': B00
+    },
+    'functions': {
+        'fore': B0D
+    },
+    'identifiers': {
+        'fore': B06
+    },
+    'indent guides': {
+        'fore': B01
+    },
+    'keywords': {
+        'fore': B0E
+    },
+    'keywords2': {
+        'fore': B08
+    },
+    'linenumbers': {
+        'back': B00,
+        'fore': B03,
+        'useFixed': True,
+        'bold': False
+    },
+    'numbers': {
+        'fore': B09
+    },
+    'operators': {
+        'fore': B05
+    },
+    'preprocessor': {
+        'fore': B0D
+    },
+    'regex': {
+        'fore': B0C
+    },
+    'stderr': {
+        'fore': B0F,
+    },
+    'stdin': {
+        'fore': B0F
+    },
+    'stdout': {
+        'fore': B0F
+    },
+    'stringeol': {
+        'back': B03,
+        'eolfilled': True
+    },
+    'strings': {
+        'fore': B0B
+    },
+    'tags': {
+        'fore': B08
+    },
+    'variables': {
+        'fore': B08
+    }
+}
+
+LanguageStyles = {
+    'CSS': {
+        'ids': {
+            'fore': B0E
+        },
+        'values': {
+            'fore': B0B
+        }
+    },
+    'Diff': {
+        'additionline': {
+            'fore': B0B
+        },
+        'chunkheader': {
+            'fore': B05
+        },
+        'deletionline': {
+            'fore': B0F
+        },
+        'diffline': {
+            'fore': B0A
+        },
+        'fileline': {
+            'fore': B05
+        }
+    },
+    'Errors': {
+        'Error lines': {
+            'fore': B0F,
+            'hotspot': 1,
+            'italic': 1
+        }
+    },
+    'HTML': {
+        'attributes': {
+            'fore': B0B
+        },
+        'cdata': {
+            'fore': B09
+        }
+    },
+    'HTML5': {
+        'attributes': {
+            'fore': B0B
+        },
+        'cdata': {
+            'fore': B09
+        }
+    },
+    'XML': {
+        'attributes': {
+            'fore': B0B
+        },
+        'cdata': {
+            'fore': B09
+        },
+        'cdata content': {
+            'fore': B05
+        },
+        'cdata tags': {
+            'fore': B06
+        },
+        'xpath attributes': {
+            'fore': B0C
+        }
+    },
+    'JavaScript': {
+        'commentdockeyword': {
+            'fore': B04
+        },
+        'commentdockeyworderror': {
+            'fore': B0F
+        },
+        'globalclass': {
+            'fore': B0A
+        }
+    },
+    'PHP': {
+        'commentdockeyword': {
+            'fore': B04
+        },
+        'commentdockeyworderror': {
+            'fore': B0F
+        }
+    }
+}
+
+MiscLanguageSettings = {}
+
+Colors = {
+    'bookmarkColor': B02,
+    'callingLineColor': B01,
+    'caretFore': B04,
+    'caretLineBack': B01,
+    'changeMarginDeleted': B0F,
+    'changeMarginInserted': B0B,
+    'changeMarginReplaced': B0D,
+    'currentLineColor': B01,
+    'edgeColor': B01,
+    'foldMarginColor': B01,
+    'selBack': B02,
+    'selFore': B07,
+    'whitespaceColor': B01
+}
+
+Indicators = {
+    'collab_local_change': {
+        'alpha': 255,
+        'color': B0B,
+        'draw_underneath': False,
+        'style': 5
+    },
+    'collab_remote_change': {
+        'alpha': 255,
+        'color': B0A,
+        'draw_underneath': True,
+        'style': 7
+    },
+    'collab_remote_cursor_1': {
+        'alpha': 255,
+        'color': B0A,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_2': {
+        'alpha': 255,
+        'color': B09,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_3': {
+        'alpha': 255,
+        'color': B08,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_4': {
+        'alpha': 255,
+        'color': B0D,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'collab_remote_cursor_5': {
+        'alpha': 255,
+        'color': B0C,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'find_highlighting': {
+        'alpha': 255,
+        'color': B0D,
+        'draw_underneath': False,
+        'style': 6
+    },
+    'linter_error': {
+        'alpha': 255,
+        'color': B08,
+        'draw_underneath': True,
+        'style': 1
+    },
+    'linter_warning': {
+        'alpha': 255,
+        'color': B0B,
+        'draw_underneath': True,
+        'style': 1
+    },
+    'multiple_caret_area': {
+        'alpha': 255,
+        'color': B0D,
+        'draw_underneath': False,
+        'style': 6
+    },
+    'soft_characters': {
+        'alpha': 255,
+        'color': B0A,
+        'draw_underneath': False,
+        'style': 0
+    },
+    'tabstop_current': {
+        'alpha': 255,
+        'color': B08,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'tabstop_pending': {
+        'alpha': 255,
+        'color': B0E,
+        'draw_underneath': True,
+        'style': 6
+    },
+    'tag_matching': {
+        'alpha': 255,
+        'color': B06,
+        'draw_underneath': False,
+        'style': 6
+    }
+}
