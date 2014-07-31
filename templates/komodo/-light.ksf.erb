@@ -28,35 +28,58 @@ B0D = RgbToBgr(<%= @base["0D"]["rgb"] %>)
 B0E = RgbToBgr(<%= @base["0E"]["rgb"] %>)
 B0F = RgbToBgr(<%= @base["0F"]["rgb"] %>)
 
+# More descriptive color names
+baseFore = B00
+baseForeBlend1 = B01
+baseForeBlend2 = B02
+
+baseBack = B07
+baseBackBlend1 = B06
+baseBackBlend2 = B05
+baseBackBlend3 = B04
+
+comment = B04
+commentBlend = B03
+
+red = B08
+orange = B09
+yellow = B0A
+green = B0B
+teal = B0C
+blue = B0D
+purple = B0E
+themed = B0F
+
+# Common Styles
 CommonStyles = {
     'attribute name': {
-        'fore': B09
+        'fore': orange
     },
     'attribute value': {
-        'fore': B0B
+        'fore': green
     },
     'bracebad': {
-        'fore': B06
+        'fore': baseForeBlend1
     },
     'bracehighlight': {
-        'fore': B01,
-        'back': B06
+        'fore': baseFore,
+        'back': baseBackBlend1
     },
     'classes': {
-        'fore': B0A
+        'fore': yellow
     },
     'comments': {
-        'fore': B03,
+        'fore': comment,
         'italic': True
     },
     'control characters': {
-        'fore': B09
+        'fore': orange
     },
     'default_fixed': {
-        'back': B07,
+        'back': baseBack,
         'eolfilled': 0,
-        'face': 'DejaVu Sans Mono',
-        'fore': B02,
+        'face': 'Monospace',
+        'fore': baseFore,
         'hotspot': 0,
         'italic': 0,
         'size': 11,
@@ -64,10 +87,10 @@ CommonStyles = {
         'bold': 0
     },
     'default_proportional': {
-        'back': B07,
+        'back': baseBack,
         'eolfilled': 0,
-        'face': 'DejaVu Sans Mono',
-        'fore': B02,
+        'face': 'Monospace',
+        'fore': baseFore,
         'hotspot': 0,
         'italic': 0,
         'size': 11,
@@ -75,150 +98,168 @@ CommonStyles = {
         'bold': 0
     },
     'fold markers': {
-        'fore': B05,
-        'back': B07
+        'fore': comment,
+        'back': baseBack
     },
     'functions': {
-        'fore': B0D
+        'fore': blue
     },
     'identifiers': {
-        'fore': B03
+        'fore': baseForeBlend1
     },
     'indent guides': {
-        'fore': B06
+        'fore': baseBackBlend1
     },
     'keywords': {
-        'fore': B0E
+        'fore': purple
     },
     'keywords2': {
-        'fore': B08
+        'fore': red
     },
     'linenumbers': {
-        'back': B06,
-        'fore': B04,
+        'back': baseBackBlend1,
+        'fore': baseBackBlend3,
         'size': 10,
         'useFixed': True,
         'bold': False
     },
     'numbers': {
-        'fore': B09
+        'fore': orange
     },
     'operators': {
-        'fore': B0D
+        'fore': blue
     },
     'preprocessor': {
-        'fore': B06
+        'fore': baseForeBlend1
     },
     'regex': {
-        'fore': B0C
+        'fore': teal
     },
     'stderr': {
-        'fore': B0F,
+        'fore': red,
     },
     'stdin': {
-        'fore': B0F
+        'fore': orange
     },
     'stdout': {
-        'fore': B0F
+        'fore': teal
     },
     'stringeol': {
-        'back': B03,
+        'back': baseForeBlend2,
         'eolfilled': True
     },
     'strings': {
-        'fore': B0B
+        'fore': green
     },
     'tags': {
-        'fore': B08
+        'fore': red
     },
     'variables': {
-        'fore': B08
+        'fore': red
     }
 }
 
 LanguageStyles = {
     'CSS': {
         'ids': {
-            'fore': B0E
+            'fore': purple
         },
         'values': {
-            'fore': B0B
+            'fore': green
         }
     },
     'Diff': {
         'additionline': {
-            'fore': B0B
+            'fore': green
         },
         'chunkheader': {
-            'fore': B05
+            'fore': baseForeBlend2
         },
         'deletionline': {
-            'fore': B0F
+            'fore': red
         },
         'diffline': {
-            'fore': B0A
+            'fore': yellow
         },
         'fileline': {
-            'fore': B07
+            'fore': baseFore
         }
     },
     'Errors': {
         'Error lines': {
-            'fore': B0F,
+            'fore': red,
             'hotspot': 1,
             'italic': 1
         }
     },
     'HTML': {
         'attributes': {
-            'fore': B0B
+            'fore': green
         },
         'cdata': {
-            'fore': B09
+            'fore': orange
+        },
+        'cdata content': {
+            'fore': baseFore
+        },
+        'cdata tags': {
+            'fore': baseForeBlend1
+        },
+        'xpath attributes': {
+            'fore': teal
         }
     },
     'HTML5': {
         'attributes': {
-            'fore': B0B
+            'fore': green
         },
         'cdata': {
-            'fore': B09
+            'fore': orange
+        },
+        'cdata content': {
+            'fore': baseFore
+        },
+        'cdata tags': {
+            'fore': baseForeBlend1
+        },
+        'xpath attributes': {
+            'fore': teal
         }
     },
     'XML': {
         'attributes': {
-            'fore': B0B
+            'fore': green
         },
         'cdata': {
-            'fore': B09
+            'fore': orange
         },
         'cdata content': {
-            'fore': B07
+            'fore': baseFore
         },
         'cdata tags': {
-            'fore': B06
+            'fore': baseForeBlend1
         },
         'xpath attributes': {
-            'fore': B0C
+            'fore': teal
         }
     },
     'JavaScript': {
         'commentdockeyword': {
-            'fore': B04
+            'fore': commentBlend
         },
         'commentdockeyworderror': {
-            'fore': B0F
+            'fore': red
         },
         'globalclass': {
-            'fore': B0A
+            'fore': yellow
         }
     },
     'PHP': {
         'commentdockeyword': {
-            'fore': B04
+            'fore': commentBlend
         },
         'commentdockeyworderror': {
-            'fore': B0F
+            'fore': red
         }
     }
 }
@@ -226,110 +267,111 @@ LanguageStyles = {
 MiscLanguageSettings = {}
 
 Colors = {
-    'bookmarkColor': B02,
-    'callingLineColor': B06,
-    'caretFore': B04,
-    'caretLineBack': B06,
-    'changeMarginDeleted': B0F,
-    'changeMarginInserted': B0B,
-    'changeMarginReplaced': B0D,
-    'currentLineColor': B06,
-    'edgeColor': B06,
-    'foldMarginColor': B07,
-    'selBack': B05,
-    'selFore': B01,
-    'whitespaceColor': B06
+    'bookmarkColor': baseBackBlend2,
+    'callingLineColor': baseBackBlend1,
+    'caretFore': commentBlend,
+    'caretLineBack': baseBackBlend1,
+    'changeMarginDeleted': red,
+    'changeMarginInserted': green,
+    'changeMarginReplaced': blue,
+    'currentLineColor': baseBackBlend1,
+    'edgeColor': baseBackBlend1,
+    'foldMarginColor': baseBack,
+    'selBack': baseBackBlend2,
+    'selFore': baseFore,
+    'whitespaceColor': baseBackBlend1
 }
 
 Indicators = {
     'collab_local_change': {
         'alpha': 0,
-        'color': B0B,
+        'color': green,
         'draw_underneath': False,
         'style': 5
     },
     'collab_remote_change': {
         'alpha': 120,
-        'color': B0A,
+        'color': yellow,
         'draw_underneath': True,
         'style': 7
     },
     'collab_remote_cursor_1': {
         'alpha': 100,
-        'color': B0A,
+        'color': yellow,
         'draw_underneath': True,
         'style': 6
     },
     'collab_remote_cursor_2': {
         'alpha': 100,
-        'color': B09,
+        'color': orange,
         'draw_underneath': True,
         'style': 6
     },
     'collab_remote_cursor_3': {
         'alpha': 100,
-        'color': B08,
+        'color': red,
         'draw_underneath': True,
         'style': 6
     },
     'collab_remote_cursor_4': {
         'alpha': 100,
-        'color': B0D,
+        'color': blue,
         'draw_underneath': True,
         'style': 6
     },
     'collab_remote_cursor_5': {
         'alpha': 100,
-        'color': B0C,
+        'color': teal,
         'draw_underneath': True,
         'style': 6
     },
     'find_highlighting': {
         'alpha': 100,
-        'color': B0C,
+        'color': teal,
         'draw_underneath': True,
         'style': 7
     },
     'linter_error': {
         'alpha': 100,
-        'color': B0F,
+        'color': red,
         'draw_underneath': True,
         'style': 0
     },
     'linter_warning': {
         'alpha': 100,
-        'color': B0A,
+        'color': yellow,
         'draw_underneath': True,
         'style': 13
     },
     'multiple_caret_area': {
         'alpha': 100,
-        'color': B04,
+        'color': baseBackBlend2,
         'draw_underneath': True,
         'style': 6
     },
     'soft_characters': {
         'alpha': 100,
-        'color': B04,
+        'color': baseForeBlend2,
         'draw_underneath': False,
         'style': 6
     },
     'tabstop_current': {
         'alpha': 100,
-        'color': B04,
+        'color': baseBackBlend1,
         'draw_underneath': True,
         'style': 7
     },
     'tabstop_pending': {
         'alpha': 100,
-        'color': B03,
+        'color': baseBackBlend2,
         'draw_underneath': True,
         'style': 6
     },
     'tag_matching': {
         'alpha': 100,
-        'color': B0A,
+        'color': yellow,
         'draw_underneath': True,
         'style': 7
     }
 }
+
