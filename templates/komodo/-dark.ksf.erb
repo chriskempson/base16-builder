@@ -8,26 +8,10 @@ Version = 10
 
 Booleans = {'caretLineVisible': True, 'preferFixed': True, 'useSelFore': False}
 
-def RgbToBgr(rgb):
-    return sum(int(v) * (256 ** i) for i, v in enumerate(rgb))
-
-# Color Template
-B00 = RgbToBgr(<%= @base["00"]["rgb"] %>)
-B01 = RgbToBgr(<%= @base["01"]["rgb"] %>)
-B02 = RgbToBgr(<%= @base["02"]["rgb"] %>)
-B03 = RgbToBgr(<%= @base["03"]["rgb"] %>)
-B04 = RgbToBgr(<%= @base["04"]["rgb"] %>)
-B05 = RgbToBgr(<%= @base["05"]["rgb"] %>)
-B06 = RgbToBgr(<%= @base["06"]["rgb"] %>)
-B07 = RgbToBgr(<%= @base["07"]["rgb"] %>)
-B08 = RgbToBgr(<%= @base["08"]["rgb"] %>)
-B09 = RgbToBgr(<%= @base["09"]["rgb"] %>)
-B0A = RgbToBgr(<%= @base["0A"]["rgb"] %>)
-B0B = RgbToBgr(<%= @base["0B"]["rgb"] %>)
-B0C = RgbToBgr(<%= @base["0C"]["rgb"] %>)
-B0D = RgbToBgr(<%= @base["0D"]["rgb"] %>)
-B0E = RgbToBgr(<%= @base["0E"]["rgb"] %>)
-B0F = RgbToBgr(<%= @base["0F"]["rgb"] %>)
+<% for @num in 0..15
+    @base_string = "%02X" % @num
+    @full_string = "B%s = 0x%s" % [@base_string, @base[@base_string]["hexbgr"]] %><%= @full_string %>
+<% end %>
 
 # More descriptive color names
 baseFore = B07
