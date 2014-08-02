@@ -31,6 +31,7 @@ Build a scheme stored on some webspace.
 * IDEA
 * iTerm 2
 * IPython Notebook
+* Komodo (IDE & Edit)
 * Konsole
 * Mate Terminal
 * MinTTY
@@ -68,6 +69,7 @@ Build a scheme stored on some webspace.
 * [oxplot](https://github.com/oxplot) - Mate Terminal
 * [esn89](https://github.com/esn89) - Zathura PDF Reader
 * [romainx](https://github.com/romainx) - MultiMarkdown Composer 2
+* [Naatan](https://github.com/Naatan) - Komodo (IDE & Edit)
 
 ## License
 Base16 Builder is released under the [MIT License](https://github.com/chriskempson/base16-builder/blob/master/LICENSE.md)
