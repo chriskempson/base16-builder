@@ -18,26 +18,39 @@ Build a scheme stored on some webspace.
 * BBEdit (TextWrangler)
 * Chrome DevTools
 * CodeMirror
+* Console2
+* DrRacket
 * Emacs
 * Escape Code Shell Script
+* Geany
 * Gedit
 * Gnome Terminal
 * Guake
 * highlight.js
 * HTML Preview
+* IDEA
 * iTerm 2
+* IPython Notebook
+* Konsole
 * Mate Terminal
 * MinTTY
 * Mou
 * MultiMarkdown Composer 2
 * Notepad++
 * prettify.js
+* Prism.js
+* PuTTY
 * Pygments
+* Qt Creator
 * Rainbow
 * Rouge
+* Terminal
+* Terminator
 * Textadept
 * TextMate (Sublime Text)
 * Vim
+* Visual Studio
+* Virtual Console
 * Windows Command Prompt
 * Xcode 4
 * XFCE4 Terminal
