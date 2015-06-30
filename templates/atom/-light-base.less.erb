@@ -51,175 +51,175 @@ atom-text-editor, // <- remove when Shadow DOM can't be disabled
   }
 
   .line-number.cursor-line-no-selection, .line.cursor-line {
-    background-color: rgba(176, 176, 176, 0.33);
+    background-color: @syntax-gutter-background-color-selected;
   }
 
 }
 
 .variable.parameter.function {
-  color: #<%= @base["02"]["hex"] %>;
+  color: @base02-color;
 }
 
 .comment, .punctuation.definition.comment {
-  color: #<%= @base["04"]["hex"] %>;
+  color: @base04-color;
 }
 
 .punctuation.definition.string, .punctuation.definition.variable, .punctuation.definition.string, .punctuation.definition.parameters, .punctuation.definition.string, .punctuation.definition.array {
-  color: #<%= @base["02"]["hex"] %>;
+  color: @base02-color;
 }
 
 .none {
-  color: #<%= @base["02"]["hex"] %>;
+  color: @base02-color;
 }
 
 .keyword.operator {
-  color: #<%= @base["02"]["hex"] %>;
+  color: @base02-color;
 }
 
 .keyword {
-  color: #<%= @base["0E"]["hex"] %>;
+  color: @base0E-color;
 }
 
 .variable {
-  color: #<%= @base["08"]["hex"] %>;
+  color: @base08-color;
 }
 
 .entity.name.function, .meta.require, .support.function.any-method {
-  color: #<%= @base["0D"]["hex"] %>;
+  color: @base0D-color;
 }
 
 .support.class, .entity.name.class, .entity.name.type.class {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .meta.class {
-  color: #<%= @base["01"]["hex"] %>;
+  color: @base01-color;
 }
 
 .keyword.other.special-method {
-  color: #<%= @base["0D"]["hex"] %>;
+  color: @base0D-color;
 }
 
 .storage {
-  color: #<%= @base["0E"]["hex"] %>;
+  color: @base0E-color;
 }
 
 .support.function {
-  color: #<%= @base["0C"]["hex"] %>;
+  color: @base0C-color;
 }
 
 .string, .constant.other.symbol, .entity.other.inherited-class {
-  color: #<%= @base["0B"]["hex"] %>;
+  color: @base0B-color;
 }
 
 .constant.numeric {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .none {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .none {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .constant {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .entity.name.tag {
-  color: #<%= @base["08"]["hex"] %>;
+  color: @base08-color;
 }
 
 .entity.other.attribute-name {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .entity.other.attribute-name.id, .punctuation.definition.entity {
-  color: #<%= @base["0D"]["hex"] %>;
+  color: @base0D-color;
 }
 
 .meta.selector {
-  color: #<%= @base["0E"]["hex"] %>;
+  color: @base0E-color;
 }
 
 .none {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .markup.heading .punctuation.definition.heading, .entity.name.section {
-  color: #<%= @base["0D"]["hex"] %>;
+  color: @base0D-color;
 }
 
 .keyword.other.unit {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .markup.bold, .punctuation.definition.bold {
   font-weight: bold;
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .markup.italic, .punctuation.definition.italic {
   font-style: italic;
-  color: #<%= @base["0E"]["hex"] %>;
+  color: @base0E-color;
 }
 
 .markup.raw.inline {
-  color: #<%= @base["0B"]["hex"] %>;
+  color: @base0B-color;
 }
 
 .string.other.link {
-  color: #<%= @base["08"]["hex"] %>;
+  color: @base08-color;
 }
 
 .meta.link {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .markup.list {
-  color: #<%= @base["08"]["hex"] %>;
+  color: @base08-color;
 }
 
 .markup.quote {
-  color: #<%= @base["09"]["hex"] %>;
+  color: @base09-color;
 }
 
 .meta.separator {
-  color: #<%= @base["02"]["hex"] %>;
-  background-color: #<%= @base["06"]["hex"] %>;
+  color: @base02-color;
+  background-color: @base06-color;
 }
 
 .markup.inserted {
-  color: #<%= @base["0B"]["hex"] %>;
+  color: @base0B-color;
 }
 
 .markup.deleted {
-  color: #<%= @base["08"]["hex"] %>;
+  color: @base08-color;
 }
 
 .markup.changed {
-  color: #<%= @base["0E"]["hex"] %>;
+  color: @base0E-color;
 }
 
 .constant.other.color {
-  color: #<%= @base["0C"]["hex"] %>;
+  color: @base0C-color;
 }
 
 .string.regexp {
-  color: #<%= @base["0C"]["hex"] %>;
+  color: @base0C-color;
 }
 
 .constant.character.escape {
-  color: #<%= @base["0C"]["hex"] %>;
+  color: @base0C-color;
 }
 
 .punctuation.section.embedded, .variable.interpolation {
-  color: #<%= @base["0F"]["hex"] %>;
+  color: @base0F-color;
 }
 
 .invalid.illegal {
-  color: #<%= @base["07"]["hex"] %>;
-  background-color: #<%= @base["08"]["hex"] %>;
+  color: @base07-color;
+  background-color: @base08-color;
 }
