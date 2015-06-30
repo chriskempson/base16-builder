@@ -4,30 +4,46 @@
 // This defines all syntax variables that syntax themes must implement when they
 // include a syntax-variables.less file.
 
+@base00-color: #<%= @base["00"]["hex"] %>;
+@base01-color: #<%= @base["01"]["hex"] %>;
+@base02-color: #<%= @base["02"]["hex"] %>;
+@base03-color: #<%= @base["03"]["hex"] %>;
+@base04-color: #<%= @base["04"]["hex"] %>;
+@base05-color: #<%= @base["05"]["hex"] %>;
+@base06-color: #<%= @base["06"]["hex"] %>;
+@base07-color: #<%= @base["07"]["hex"] %>;
+@base08-color: #<%= @base["08"]["hex"] %>;
+@base0A-color: #<%= @base["0A"]["hex"] %>;
+@base0B-color: #<%= @base["0B"]["hex"] %>;
+@base0C-color: #<%= @base["0C"]["hex"] %>;
+@base0D-color: #<%= @base["0D"]["hex"] %>;
+@base0E-color: #<%= @base["0E"]["hex"] %>;
+@base0F-color: #<%= @base["0F"]["hex"] %>;
+
 // General colors
-@syntax-text-color: #<%= @base["05"]["hex"] %>;
-@syntax-cursor-color: #<%= @base["05"]["hex"] %>;
-@syntax-selection-color: #<%= @base["02"]["hex"] %>;
-@syntax-background-color: #<%= @base["00"]["hex"] %>;
+@syntax-text-color: @base05-color;
+@syntax-cursor-color: @base05-color;
+@syntax-selection-color: @base02-color;
+@syntax-background-color: @base00-color;
 
 // Guide colors
-@syntax-wrap-guide-color: #<%= @base["03"]["hex"] %>;
-@syntax-indent-guide-color: #<%= @base["03"]["hex"] %>;
-@syntax-invisible-character-color: #<%= @base["03"]["hex"] %>;
+@syntax-wrap-guide-color: @base03-color;
+@syntax-indent-guide-color: @base03-color;
+@syntax-invisible-character-color: @base03-color;
 
 // For find and replace markers
-@syntax-result-marker-color: #<%= @base["03"]["hex"] %>;
-@syntax-result-marker-color-selected: #<%= @base["05"]["hex"] %>;
+@syntax-result-marker-color: @base03-color;
+@syntax-result-marker-color-selected: @base05-color;
 
 // Gutter colors
-@syntax-gutter-text-color: #<%= @base["05"]["hex"] %>;
-@syntax-gutter-text-color-selected: #<%= @base["05"]["hex"] %>;
-@syntax-gutter-background-color: #<%= @base["00"]["hex"] %>;
-@syntax-gutter-background-color-selected: rgba(80, 80, 80, 0.33);
+@syntax-gutter-text-color: @base05-color;
+@syntax-gutter-text-color-selected: @base05-color;
+@syntax-gutter-background-color: @base00-color;
+@syntax-gutter-background-color-selected: fadeout(@base00-color, .33);
 
 // For git diff info. i.e. in the gutter
 // These are static and were not extracted from your textmate theme
-@syntax-color-renamed: #<%= @base["0D"]["hex"] %>;
-@syntax-color-added: #<%= @base["0B"]["hex"] %>;
-@syntax-color-modified: #<%= @base["0A"]["hex"] %>;
-@syntax-color-removed: #<%= @base["08"]["hex"] %>;
+@syntax-color-renamed: @base0D-color;
+@syntax-color-added: @base0B-color;
+@syntax-color-modified: @base0A-color;
+@syntax-color-removed: @base08-color;
