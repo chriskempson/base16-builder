@@ -19,12 +19,12 @@ color05="<%= split_by_slash(@base["0E"]["hex"]) %>" # Base 0E - Magenta
 color06="<%= split_by_slash(@base["0C"]["hex"]) %>" # Base 0C - Cyan
 color07="<%= split_by_slash(@base["05"]["hex"]) %>" # Base 05 - White
 color08="<%= split_by_slash(@base["03"]["hex"]) %>" # Base 03 - Bright Black
-color09=$color01 # Base 08 - Bright Red
-color10=$color02 # Base 0B - Bright Green
-color11=$color03 # Base 0A - Bright Yellow
-color12=$color04 # Base 0D - Bright Blue
-color13=$color05 # Base 0E - Bright Magenta
-color14=$color06 # Base 0C - Bright Cyan
+color09="<%= split_by_slash(@base["0808"]["hex"]) %>" # Base 08 - Bright Red
+color10="<%= split_by_slash(@base["0B0B"]["hex"]) %>" # Base 0B - Bright Green
+color11="<%= split_by_slash(@base["0A0A"]["hex"]) %>" # Base 0A - Bright Yellow
+color12="<%= split_by_slash(@base["0D0D"]["hex"]) %>" # Base 0D - Bright Blue
+color13="<%= split_by_slash(@base["0E0E"]["hex"]) %>" # Base 0E - Bright Magenta
+color14="<%= split_by_slash(@base["0C0C"]["hex"]) %>" # Base 0C - Bright Cyan
 color15="<%= split_by_slash(@base["07"]["hex"]) %>" # Base 07 - Bright White
 color16="<%= split_by_slash(@base["09"]["hex"]) %>" # Base 09
 color17="<%= split_by_slash(@base["0F"]["hex"]) %>" # Base 0F
@@ -32,9 +32,9 @@ color18="<%= split_by_slash(@base["01"]["hex"]) %>" # Base 01
 color19="<%= split_by_slash(@base["02"]["hex"]) %>" # Base 02
 color20="<%= split_by_slash(@base["04"]["hex"]) %>" # Base 04
 color21="<%= split_by_slash(@base["06"]["hex"]) %>" # Base 06
-color_foreground="<%= split_by_slash(@base["02"]["hex"]) %>" # Base 02
-color_background="<%= split_by_slash(@base["07"]["hex"]) %>" # Base 07
-color_cursor="<%= split_by_slash(@base["02"]["hex"]) %>" # Base 02
+color_foreground="<%= split_by_slash(@base["foreground-light"]["hex"]) %>" # Base 02
+color_background="<%= split_by_slash(@base["background-light"]["hex"]) %>" # Base 07
+color_cursor="<%= split_by_slash(@base["foreground-light"]["hex"]) %>" # Base 02
 
 if [ -n "$TMUX" ]; then
   # tell tmux to pass the escape sequences through
@@ -82,13 +82,13 @@ printf $printf_template 21 $color21
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  printf $printf_template_custom Pg <%= @base["02"]["hex"] %> # forground
-  printf $printf_template_custom Ph <%= @base["07"]["hex"] %> # background
-  printf $printf_template_custom Pi <%= @base["02"]["hex"] %> # bold color
-  printf $printf_template_custom Pj <%= @base["05"]["hex"] %> # selection color
-  printf $printf_template_custom Pk <%= @base["02"]["hex"] %> # selected text color
-  printf $printf_template_custom Pl <%= @base["02"]["hex"] %> # cursor
-  printf $printf_template_custom Pm <%= @base["07"]["hex"] %> # cursor text
+  printf $printf_template_custom Pg <%= @base["foreground-light"]["hex"] %> # forground
+  printf $printf_template_custom Ph <%= @base["background-light"]["hex"] %> # background
+  printf $printf_template_custom Pi <%= @base["foreground-light"]["hex"] %> # bold color
+  printf $printf_template_custom Pj <%= @base["background-dark"]["hex"] %> # selection color
+  printf $printf_template_custom Pk <%= @base["foreground-light"]["hex"] %> # selected text color
+  printf $printf_template_custom Pl <%= @base["foreground-light"]["hex"] %> # cursor
+  printf $printf_template_custom Pm <%= @base["background-light"]["hex"] %> # cursor text
 else
   printf $printf_template_var 10 $color_foreground
   printf $printf_template_var 11 $color_background

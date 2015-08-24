@@ -1,0 +1,22 @@
+scheme: "Jellybeans"
+author: "nanotech https://github.com/nanotech/jellybeans.vim"
+
+foreground: '#adadad'
+background: '#151515'
+
+color0: '#3b3b3b'
+color1: '#cf6a4c'
+color2: '#99ad6a'
+color3: '#d8ad4c'
+color4: '#597bc5'
+color5: '#a037b0'
+color6: '#71b9f8'
+color7: '#adadad'
+color8: '#636363'
+color9: '#f79274'
+color10: '#c1d592'
+color11: '#ffd574'
+color12: '#81a3ed'
+color13: '#c85fd8'
+color14: '#99e1ff'
+color15: '#d5d5d5'
