@@ -1,0 +1,4 @@
+#!/bin/bash
+
+(x=`tput op` y=`printf %76s`;for i in 0 10 11 8 12 7 13 15 1 9 3 2 6 4 5 14;do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)
+
