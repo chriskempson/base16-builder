@@ -1,0 +1,172 @@
+# Mutt template by Robert Timm (https://github.com/rti)
+# Alternate coloring by pickfire (https://github.com/pickfire)
+# Base16 scheme and Base16 Builder by Chris Kempson (https://github.com/chriskempson)
+
+# -----------------------------------------------------------------------------
+# MESSAGE STATUS FLAGS
+# -----------------------------------------------------------------------------
+# D message is deleted (is marked for deletion)
+# d message have attachments marked for deletion
+# K contains a PGP public key
+# N message is new
+# O message is old
+# P message is PGP encrypted
+# r message has been replied to
+# S message is PGP signed, and the signature is succesfully verified
+# s message is PGP signed
+# ! message is flagged
+# * message is tagged
+
+# -----------------------------------------------------------------------------
+# MESSAGE MATCH PATTERNS
+# -----------------------------------------------------------------------------
+# ~A              all messages
+# ~b EXPR         messages which contain EXPR in the message body
+# ~B EXPR         messages which contain EXPR in the whole message
+# ~c USER         messages carbon-copied to USER
+# ~C EXPR         message is either to: or cc: EXPR
+# ~D              deleted messages
+# ~d [MIN]-[MAX]  messages with ``date-sent'' in a Date range
+# ~E              expired messages
+# ~e EXPR         message which contains EXPR in the ``Sender'' field
+# ~F              flagged messages
+# ~f USER         messages originating from USER
+# ~g              PGP signed messages
+# ~G              PGP encrypted messages
+# ~h EXPR         messages which contain EXPR in the message header
+# ~k              message contains PGP key material
+# ~i ID           message which match ID in the ``Message-ID'' field
+# ~L EXPR         message is either originated or received by EXPR
+# ~l              message is addressed to a known mailing list
+# ~m [MIN]-[MAX]  message in the range MIN to MAX *)
+# ~n [MIN]-[MAX]  messages with a score in the range MIN to MAX *)
+# ~N              new messages
+# ~O              old messages
+# ~p              message is addressed to you (consults $alternates)
+# ~P              message is from you (consults $alternates)
+# ~Q              messages which have been replied to
+# ~R              read messages
+# ~r [MIN]-[MAX]  messages with ``date-received'' in a Date range
+# ~S              superseded messages
+# ~s SUBJECT      messages having SUBJECT in the ``Subject'' field.
+# ~T              tagged messages
+# ~t USER         messages addressed to USER
+# ~U              unread messages
+# ~v              message is part of a collapsed thread.
+# ~x EXPR         messages which contain EXPR in the `References' field
+# ~y EXPR         messages which contain EXPR in the `X-Label' field
+# ~z [MIN]-[MAX]  messages with a size in the range MIN to MAX *)
+# ~=              duplicated messages (see $duplicate_threads)
+
+# -----------------------------------------------------------------------------
+# MESSAGE to_chars flags
+# -----------------------------------------------------------------------------
+# + message is to you and you only
+# T message is to you, but also to or cc'ed to others
+# C message is cc'ed to you
+# F message is from you
+# L message is sent to a subscribed mailing list
+
+
+# -----------------------------------------------------------------------------
+# Basic Colors
+# -----------------------------------------------------------------------------
+#     name        foreground  background  pattern
+color normal      color07     color00
+color error       color01     color00
+color tilde       color20     color00
+color message     color20     color00
+color markers     color18     color19
+color attachment  color19     color00
+color search      color03     color00
+color status      color08     color18
+color indicator   color18     color03
+color signature   color05     color00
+color prompt      color03     color00
+color tree        color03     color00                # arrow in threads
+
+# Index
+color index       color20     color00     "~A"       # all messages
+color index       color07     color00     "~F"       # flagged messages
+color index       color03     color00     "~P"       # message is PGP encrypted
+color index       color02     color00     "~S"       # message is signed and signature is verified
+color index       color20     color00     "~v~(!~N)" # collapsed thread with no unread
+color index       color04     color00     "~U"       # unread messages
+color index       color04     color00     "~v~(~N)"  # collapsed thread with some unread
+color index       color02     color00     "~v~(~F)"  # collapsed thread with some flagged
+color index       color06     color00     "~O"       # message is old
+color index       color18     color02     "~T"       # tagged message
+color index       color18     color01     "~D"       # message mark for deletion
+
+# Header
+color hdrdefault  color19     color00
+color header      color08     color00     "^(From)"
+color header      color06     color00     "^(Subject)"
+color header      color01     color00     "^(X-spam-rule)"
+color header      color01     color00     "^(X-SpamProbe: SPAM)"
+
+# Body
+color normal      color07     color00
+color underline   color20     color00
+color bold        color07     color00
+
+color quoted      color03     color00
+color quoted1     color02     color00
+color quoted2     color05     color00
+color quoted3     color06     color00
+color quoted4     color04     color00
+
+# PGP
+color body        color02     color00     "(Good signature)"
+color body        color02     color00     "^gpg: Good signature .*"
+color body        color03     color00     "^gpg: "
+color body        color01     color00     "(BAD signature)"
+color body        color01     color00     "^gpg: BAD signature from.*"
+
+# -----------------------------------------------------------------------------
+# Black and White Terminal
+# -----------------------------------------------------------------------------
+# Basic
+mono  bold        bold
+mono  underline   underline
+mono  indicator   reverse
+mono  error       bold
+
+# Index
+mono  index       bold                    "~N"
+mono  index       bold                    "~F"
+mono  index       bold                    "~T"
+mono  index       bold                    "~D"
+
+# -----------------------------------------------------------------------------
+# Extras
+# -----------------------------------------------------------------------------
+# Colored emoji
+color body        color10     color00     "[;:])"              # contented
+color body        color11     color00     "[;:]\\|"            # sastifaction
+color body        color09     color00     "[;:]\\("            # depression
+
+# Abbrevation
+color body        color06     color00     "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
+                                           |FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|\
+                                           |IRL|RTFM|STFW|ROTFL|ROFL|YMMV)[*]?"
+color body        color06     color00     "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body        color06     color00     "[ ]?[*][^*]*[*][ ]" # more emoticon?
+
+# *bold*, _underline_, and /italic/
+color body        color01     color00     "(^| )\\*[^ ]+\\*( |$)"
+color body        color01     color00     "(^| )_[^ ]+_( |$)"
+color body        color01     color00     "(^| )/[^ ]+/( |$)"
+
+# Line breaks
+color body        color19     color00     "( *[-+=#*~_]){6,}"
+
+
+# Body url
+color body        color4      color0        "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# body email
+color body        color4      color0        "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+
+
+# vim: filetype=muttrc
+
