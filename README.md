@@ -36,6 +36,7 @@ Build a scheme stored on some webspace.
 * IPython Notebook
 * iTerm 2
 * Konsole
+* MacDown
 * Mate Terminal
 * MinTTY
 * MultiMarkdown Composer 2 (mmdc2)
