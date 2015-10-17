@@ -81,6 +81,16 @@
    `(isearch-lazy-highlight-face ((t (:foreground ,base0C :background ,base01 :inverse-video t))))
    `(isearch-fail ((t (:background ,base01 :inherit font-lock-warning-face :inverse-video t))))
 
+   ;; Popups
+   `(popup-face ((t (:foreground ,base02 :background ,base05))))	
+   `(popup-isearch-match ((t (:foreground ,base07 :background ,base0B))))
+   `(popup-scroll-bar-background-face ((t (:background ,base04))))
+   `(popup-scroll-bar-foreground-face ((t (:background ,base02))))
+   `(popup-summary-face ((t (:foreground ,base03))))
+   `(popup-tip-face ((t (:foreground ,base07 :background ,base0A))))
+   `(popup-menu-mouse-face ((t (:foreground ,base07 :background ,base0D))))
+   `(popup-menu-selection-face ((t (:foreground ,base07 :background ,base0C))))
+
    ;; Flymake
    `(flymake-warnline ((t (:underline ,base09 :background ,base01))))
    `(flymake-errline ((t (:underline ,base08 :background ,base01))))
@@ -225,20 +235,6 @@
    `(term-color-cyan ((t (:foreground ,base0C :background ,base0C))))
    `(term-color-blue ((t (:foreground ,base0D :background ,base0D))))
    `(term-color-magenta ((t (:foreground ,base0E :background ,base0E))))
-
-   ;; Magit (a patch is pending in magit to make these standard upstream)
-   `(magit-branch ((t (:foreground ,base0B))))
-   `(magit-header ((t (:inherit nil :weight bold))))
-   `(magit-item-highlight ((t (:inherit highlight :background nil))))
-   `(magit-log-graph ((t (:foreground ,base04))))
-   `(magit-log-sha1 ((t (:foreground ,base0E))))
-   `(magit-log-head-label-bisect-bad ((t (:foreground ,base08))))
-   `(magit-log-head-label-bisect-good ((t (:foreground ,base0B))))
-   `(magit-log-head-label-default ((t (:foreground ,base0A :box nil :weight bold))))
-   `(magit-log-head-label-local ((t (:foreground ,base0D))))
-   `(magit-log-head-label-remote ((t (:foreground ,base0B))))
-   `(magit-log-head-label-tags ((t (:foreground ,base0C :box nil :weight bold))))
-   `(magit-section-title ((t (:inherit diff-hunk-header))))
 
    `(link ((t (:foreground nil :underline t))))
    `(widget-button ((t (:underline t))))

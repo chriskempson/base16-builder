@@ -128,12 +128,14 @@
 }
 /* Style */
 pre.prettyprint {
-  background: <%= @base["07"]["hex"] %>;
-  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+  background: #<%= @base["07"]["hex"] %>;
+  color: #<%= @base["05"]["hex"] %>;
+  font-family: Consolas, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Monaco, monospace;
   font-size: 12px;
   line-height: 1.5;
-  border: 1px solid #<%= @base["00"]["hex"] %>;
+  border: 1px solid #<%= @base["06"]["hex"] %>;
   padding: 10px;
+  border-radius: 3px;
 }
 
 /* Specify class=linenums on a pre to get line numbering */

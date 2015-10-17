@@ -9,8 +9,7 @@
 */
 
 /* <%= @scheme %> Comment */
-.hljs-comment,
-.hljs-title {
+.hljs-comment {
   color: #<%= @base["04"]["hex"] %>;
 }
 
@@ -19,6 +18,7 @@
 .hljs-attribute,
 .hljs-tag,
 .hljs-regexp,
+.hljs-name,
 .ruby .hljs-constant,
 .xml .hljs-tag .hljs-title,
 .xml .hljs-pi,
@@ -42,7 +42,7 @@
 
 /* <%= @scheme %> Yellow */
 .ruby .hljs-class .hljs-title,
-.css .hljs-rules .hljs-attribute {
+.css .hljs-rule .hljs-attribute {
   color: #<%= @base["0A"]["hex"] %>;
 }
 
@@ -57,6 +57,7 @@
 }
 
 /* <%= @scheme %> Aqua */
+.hljs-title,
 .css .hljs-hexcolor {
   color: #<%= @base["0C"]["hex"] %>;
 }
@@ -79,11 +80,29 @@
   color: #<%= @base["0E"]["hex"] %>;
 }
 
+.diff .hljs-deletion,
+.diff .hljs-addition {
+  color: #<%= @base["00"]["hex"] %>;
+  display: inline-block;
+  width: 100%;
+}
+.diff .hljs-deletion {
+  background-color: #<%= @base["08"]["hex"] %>;
+}
+.diff .hljs-addition {
+  background-color: #<%= @base["0B"]["hex"] %>;
+}
+.diff .hljs-change {
+  color: #<%= @base["0D"]["hex"] %>;
+}
+
 .hljs {
   display: block;
+  overflow-x: auto;
   background: #<%= @base["00"]["hex"] %>;
   color: #<%= @base["05"]["hex"] %>;
   padding: 0.5em;
+  -webkit-text-size-adjust: none;
 }
 
 .coffeescript .javascript,

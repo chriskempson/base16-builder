@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<style-scheme version="1.0" name="Base 16 <%= @scheme %>">
+<style-scheme version="1.0" name="Base 16 <%= @scheme %> Dark">
 
   <!-- main colors, skipping one of attributes (backgroud/foreground) will use color from here -->
   <style name="Text" foreground="#<%= @base["05"]["hex"] %>" background="#<%= @base["00"]["hex"] %>"/>
@@ -15,8 +15,8 @@
   <style name="SearchResult" background="<%= @base["01"]["hex"] %>"/>
   <style name="Parentheses" background="#<%= @base["02"]["hex"] %>" />
 
-  <!-- ??? -->
-  <style name="SearchScope" foreground="#000000" background="#ffffff"/>
+  <!-- Selection whilst searching in it -->
+  <style name="SearchScope" foreground="#<%= @base["07"]["hex"] %>" background="#<%= @base["03"]["hex"] %>"/>
 
   <!-- word (symbol) under cursor: background - color of marking frame, foreground - ignored -->
   <style name="Occurrences" background="#<%= @base["03"]["hex"] %>"/>

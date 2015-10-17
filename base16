@@ -174,7 +174,7 @@ class Theme
   end
 
   # Mix two given colors. The code is borrowed from
-  # [SASS](https://github.com/nex3/sass/blob/6f09f90cbb4f130f7bd20f18c63c6f62c6857b98/lib/sass/script/functions.rb#L1001).
+  # [SASS](https://github.com/sass/sass/blob/b409aad5fb34f363cec426f2102dd7005e1a45a6/lib/sass/script/functions.rb#L1300).
   #
   # The original algorithm has been modified somewhat, removing all
   # consideration of an alpha channel (as Base16 does not support it.)
@@ -206,9 +206,8 @@ class Theme
     # and the weight of color_2 is given by 1 minus the weight of color_1.
     p = (weight/100.0).to_f
     w = p*2 - 1
-    a = 0
 
-    w1 = (((w == -1) ? w : (w)/(1 + w)) + 1)/2.0
+    w1 = (w + 1)/2.0
     w2 = 1 - w1
 
     rgb = color_1.zip(color_2).map {|v1, v2| (v1*w1 + v2*w2).to_i}
