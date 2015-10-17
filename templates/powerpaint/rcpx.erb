@@ -3,7 +3,7 @@
 # Rebecca Bettencourt (http://www.kreativekorp.com)
 %><?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE palette PUBLIC "-//Kreative//DTD ResplendentColor 1.0//EN" "rcpx.dtd">
-<palette name="Base16 <%= @scheme.gsub(/\w+/, &:capitalize) %>">
+<palette name="Base16 <%= @scheme.gsub(/\b\w/, &:capitalize) %>">
 	<colors ordered="ordered">
 		<rgb r=<%= %Q|"#{@base["00"]["rgb"][0]}"|.rjust(5) %> g=<%= %Q|"#{@base["00"]["rgb"][1]}"|.rjust(5) %> b=<%= %Q|"#{@base["00"]["rgb"][2]}"|.rjust(5) %>/>
 		<rgb r=<%= %Q|"#{@base["01"]["rgb"][0]}"|.rjust(5) %> g=<%= %Q|"#{@base["01"]["rgb"][1]}"|.rjust(5) %> b=<%= %Q|"#{@base["01"]["rgb"][2]}"|.rjust(5) %>/>
