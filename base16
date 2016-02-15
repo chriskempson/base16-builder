@@ -10,7 +10,7 @@ require "base64"
 class Theme
   BASE_PATH = File.dirname(__FILE__)
 
-  attr_accessor :template
+  attr_accessor :template, :base
 
   def initialize
     @scheme_dir = File.join(BASE_PATH, "schemes")
