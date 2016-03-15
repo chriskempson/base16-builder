@@ -13,6 +13,9 @@ Build only the "default" theme
     > ./base16 https://awesome-schemes.com/my-scheme.yml
 Build a scheme stored on some webspace.
 
+    > ./base16 -t templates/terminal-app
+Build only the terminal-app termplate
+
 ## Templates
 * Atom
 * BBEdit (TextWrangler)
