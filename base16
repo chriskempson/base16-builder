@@ -58,7 +58,7 @@ class Theme
   end
 
   def build_single_template(template_dir)
-    @template_dir = File.join(BASE_PATH, "templates", template_dir)
+    @template_dir = File.join(BASE_PATH, "**", template_dir)
   rescue StandardError
     abort(read_error_message(@template_dir))
   end
