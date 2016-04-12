@@ -114,6 +114,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Accessors</string>
+			<key>scope</key>
+			<string>keyword.other.accessor</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#<%= @base["0D"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Variables</string>
 			<key>scope</key>
 			<string>variable</string>
@@ -364,7 +375,7 @@
 			<key>name</key>
 			<string>Link Text</string>
 			<key>scope</key>
-      <string>string.other.link, punctuation.definition.string.end.markdown</string>
+			<string>string.other.link, punctuation.definition.string.end.markdown</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -544,6 +555,52 @@
 				<string>#<%= @base["03"]["hex"] %></string>
 				<key>foreground</key>
 				<string>#<%= @base["07"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>JS Variables</string>
+			<key>scope</key>
+			<string>source.js variable.other, variable.function.js</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#<%= @base["05"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>jQuery Dollar</string>
+			<key>scope</key>
+			<string>variable.other.dollar</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#<%= @base["08"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>JS DOM Support</string>
+			<key>scope</key>
+			<string>support.type.object.dom</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#<%= @base["0A"]["hex"] %></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>JS Properties</string>
+			<key>scope</key>
+			<string>constant.other.object.key.js, string.unquoted.label.js</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#<%= @base["05"]["hex"] %></string>
 			</dict>
 		</dict>
 	</array>
