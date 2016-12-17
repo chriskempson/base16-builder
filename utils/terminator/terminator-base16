@@ -1,0 +1,69 @@
+#! /usr/bin/env python2
+
+import argparse
+import os
+from copy import copy
+
+import yaml
+import terminatorlib.util
+import terminatorlib.config
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Add/modify terminator profile with base16 color scheme.")
+    parser.add_argument("scheme", metavar="SCHEME", type=argparse.FileType(),
+                        help="path to scheme YAML definition")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--dark", action="store_true", help="dark background (default)")
+    group.add_argument("--light", action="store_true", help="light background")
+    parser.add_argument("--profile", default="default", help="profile name (default: %(default)s)")
+    parser.add_argument("--no-titles", action="store_true", help="do not modify titles colors")
+    parser.add_argument("--debug", action="store_true", help="debug mode")
+    args = parser.parse_args()
+
+    scheme = yaml.load(args.scheme)
+    for k in scheme:
+        if k.startswith("base"):
+            scheme[k] = "#" + scheme[k]
+
+    if args.debug:
+        terminatorlib.util.DEBUG = True
+
+    fake_options = argparse.Namespace()
+    fake_options.config = os.path.join(terminatorlib.util.get_config_dir(),
+                                       "config")
+    config = terminatorlib.config.Config()
+    config.options_set(fake_options)
+
+    if not args.no_titles:
+        config.base.global_config["title_transmit_fg_color"] = scheme["base07"]
+        config.base.global_config["title_transmit_bg_color"] = scheme["base08"]
+        config.base.global_config["title_receive_fg_color"] = scheme["base07"]
+        config.base.global_config["title_receive_bg_color"] = scheme["base0D"]
+        config.base.global_config["title_inactive_fg_color"] = scheme["base00"]
+        config.base.global_config["title_inactive_bg_color"] = scheme["base04"]
+
+    if args.profile not in config.base.profiles:
+        config.base.profiles[args.profile] = copy(config.base.profiles['default'])
+    profile = config.base.profiles[args.profile]
+
+    if args.light:
+        profile["background_color"] = scheme["base07"]
+        profile["cursor_color"] = scheme["base03"]
+        profile["foreground_color"] = scheme["base03"]
+    else:
+        profile["background_color"] = scheme["base00"]
+        profile["cursor_color"] = scheme["base04"]
+        profile["foreground_color"] = scheme["base04"]
+
+    profile["palette"] = ":".join((scheme["base00"], scheme["base08"],  # Normal
+                                   scheme["base0B"], scheme["base0A"],
+                                   scheme["base0D"], scheme["base0E"],
+                                   scheme["base0C"], scheme["base07"],
+                                   scheme["base00"], scheme["base08"],  # Bright
+                                   scheme["base0B"], scheme["base0A"],
+                                   scheme["base0D"], scheme["base0E"],
+                                   scheme["base0C"], scheme["base07"]))
+    profile["allow_bold"] = True
+    config.save()
