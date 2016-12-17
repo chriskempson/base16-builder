@@ -1,0 +1,44 @@
+/*
+ * <%= @scheme %> (dark)
+ * by <%= @author %>
+ *
+ */
+
+$dark-theme: true;
+
+// Import Styles
+@import "base/theme-config";
+
+// Palette
+$base00: #<%= @base["00"]["hex"] %>;
+$base01: #<%= @base["01"]["hex"] %>;
+$base02: #<%= @base["02"]["hex"] %>;
+$base03: #<%= @base["03"]["hex"] %>;
+$base04: #<%= @base["04"]["hex"] %>;
+$base05: #<%= @base["05"]["hex"] %>;
+$base06: #<%= @base["06"]["hex"] %>;
+$base07: #<%= @base["07"]["hex"] %>;
+$base08: #<%= @base["08"]["hex"] %>;
+$base09: #<%= @base["09"]["hex"] %>;
+$base0A: #<%= @base["0A"]["hex"] %>;
+$base0B: #<%= @base["0B"]["hex"] %>;
+$base0C: #<%= @base["0C"]["hex"] %>;
+$base0D: #<%= @base["0D"]["hex"] %>;
+$base0E: #<%= @base["0D"]["hex"] %>;
+$base0F: #<%= @base["0E"]["hex"] %>;
+
+// Styles
+@include styles(
+    $base00, // Background
+    $base01, // Background - Highlight
+    $base04, // Comments / Secondary Content
+    $base06, // Body text / default code / primary content
+    $base07, // Optional emphasized content
+    $base0A, // CSS Properties
+    $base09, // CSS3 pseudo-selectors / elements
+    $base08, // CSS Keywords (!important, etc.)
+    $base0E, // HTML Tags / CSS ID/Class Selectors / JS Keywords
+    $base0B, // HTML/CSS/JS Strings
+    $base0C, // CSS Tag Selectors / JS Operators (in Canary)
+    $base0E  // Accent / Highlight
+);
