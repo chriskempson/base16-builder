@@ -129,7 +129,7 @@ class Theme
     make_dir(output_dir)
 
     # If the filename starts with a dash, we use the dash to separate
-    delimiter = file_name.starts_with?("-") ? "" : "."
+    delimiter = file_name.start_with?("-") ? "" : "."
 
     output_filename = File.join(output_dir,
                                 "base16-#{scheme_name}#{delimiter}#{file_name}")
@@ -230,14 +230,6 @@ class Theme
   # @param weight [Fixnum] The color weight. See #mix for more information.
   def shade(color, weight = 50)
     mix(@base['00']['rgb'], color, weight)
-  end
-end
-
-# Provide starts_with? method borrowed from Rails
-class String
-  def starts_with?(prefix)
-    prefix = prefix.to_s
-    self[0, prefix.length] == prefix
   end
 end
 
