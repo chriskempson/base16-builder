@@ -27,6 +27,24 @@
       (base0E "#<%= @base["0E"]["hex"] %>")
       (base0F "#<%= @base["0F"]["hex"] %>"))
 
+  (unless (display-graphic-p)
+    (setq base00 "black"
+          base01 "color-18"
+          base02 "color-19"
+          base03 "brightblack"
+          base04 "color-20"
+          base05 "white"
+          base06 "color-21"
+          base07 "brightwhite"
+          base08 "red"
+          base09 "color-16"
+          base0A "yellow"
+          base0B "green"
+          base0C "cyan"
+          base0D "blue"
+          base0E "magenta"
+          base0F "color-17"))
+
   (custom-theme-set-faces 
    'base16-<%= @slug %>-dark
 
