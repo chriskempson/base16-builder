@@ -27,7 +27,7 @@
       (base0E "#<%= @base["0E"]["hex"] %>")
       (base0F "#<%= @base["0F"]["hex"] %>"))
 
-  (custom-theme-set-faces 
+  (custom-theme-set-faces
    'base16-<%= @slug %>-dark
 
    ;; Built-in stuff (Emacs 23)
@@ -175,6 +175,10 @@
    `(diff-header ((t (:background ,base01))))
    `(diff-file-header ((t (:background ,base02))))
    `(diff-hunk-header ((t (:background ,base01 :foreground ,base0E))))
+
+   `(diff-hl-change ((t (:foreground ,base0A))))
+   `(diff-hl-delete ((t (:foreground ,base08))))
+   `(diff-hl-insert ((t (:foreground ,base0B))))
 
    `(ediff-even-diff-A ((t (:foreground nil :background nil :inverse-video t))))
    `(ediff-even-diff-B ((t (:foreground nil :background nil :inverse-video t))))
@@ -445,7 +449,7 @@
    `(custom-variable-tag ((t (:foreground ,base0D))))
    `(custom-group-tag ((t (:foreground ,base0D))))
    `(custom-state ((t (:foreground ,base0B)))))
-   
+
 
   (custom-theme-set-variables
    'base16-<%= @slug %>-dark
