@@ -41,7 +41,7 @@ class Theme
   def build_single_scheme(scheme_file)
     puts scheme_file
     scheme_data = read_scheme_file(scheme_file)
-    populate_template_variables(scheme_data)
+    populate_template_variables(scheme_data, scheme_file)
     create_output_files
   end
 
@@ -75,28 +75,93 @@ class Theme
     abort(read_error_message(template_file))
   end
 
-  def populate_template_variables(scheme_data)
+  def populate_template_variables(scheme_data, scheme_file)
     # Define ERB vars
-    @scheme = scheme_data["scheme"]
+    @scheme = scheme_data["scheme"] || File.basename(scheme_file, '.yml')
     @author = scheme_data["author"]
-    @slug = slug(scheme_data["scheme"])
+    @slug = slug(@scheme)
 
     # Define ERB color vars
-    @base = {}
-    [
-      "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B",
-      "0C", "0D", "0E", "0F"
-    ].each do |key|
-      hex = scheme_data["base" + key];
-      @base[key] = {
-        "hex" => hex,
-        "hexbgr" => to_hex_bgr(hex),
-        "dhex" => to_dhex(hex),
-        "rgb" => to_rgb(hex),
-        "srgb" => to_srgb(hex)
-      }
+    if scheme_data["color0"]
+      # This is a typical, 16-color terminal theme, not a base16 color theme.
+      @type = "terminal"
+      @profile_name = "Terminal #{@scheme}"
+      @profile_slug = "terminal-#{@slug}"
+      base16_for_color = ["00", "08", "0B", "0A", "0D", "0E", "0C", "05",
+                          "03", "0808", "0B0B", "0A0A", "0D0D", "0E0E", "0C0C", "07",]
+      @base = {}
+      (0..15).to_a.each do |key|
+        hex = scheme_data["color#{key}"];
+        base16_equivalent = base16_for_color[key]
+        store_color_value(@base, base16_equivalent, hex)
+      end
+
+      # These are not used in terminal themes, but these are some values so
+      # the themes for other applications can be generated without errors.
+      # Not guaranteed to look good.
+      store_color_value(@base, "01", "1f2a2e")
+      store_color_value(@base, "02", "364549")
+      store_color_value(@base, "04", "607176")
+      store_color_value(@base, "06", "b8d7e0")
+      store_color_value(@base, "09", "f99157")
+      store_color_value(@base, "0F", "f2777a")
+    else
+      # This is a base16 color theme, possibly with bright colors
+      @type = "base16"
+      @base = {}
+      ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B",
+       "0C", "0D", "0E", "0F"
+      ].each do |key|
+        hex = scheme_data["base" + key];
+        hex ||= scheme_data["base" + key[0..1]];
+        store_color_value(@base, key, hex)
+      end
+
+      # Use these optional bright colors if they are defined
+      ["0808", "0A0A", "0B0B", "0C0C", "0D0D", "0E0E"].each do |key|
+        hex = scheme_data["base" + key];
+        hex ||= scheme_data["base" + key[0..1]];
+        store_color_value(@base, key, hex)
+      end
     end
+    # @base["01"] || store_color_value(@base, "01", tint(@base['00']['rgb'], 0.1))
+    # @base["02"] || store_color_value(@base, "01", tint(@base['00']['rgb'], 0.1))
+    # @base["03"] || store_color_value(@base, "01", tint(@base['00']['rgb'], 0.1))
+    # @base["04"] || store_color_value(@base, "01", tint(@base['00']['rgb'], 0.1))
+
+      # ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B",
+      #  "0C", "0D", "0E", "0F"
+      # ].each do |key|
+      #   puts key, @base[key]
+      # end
+
+#    @base["07"] || store_color_value(@base, "07", "FFFFFF")
+
+
+    color = scheme_data["foreground-light"] || scheme_data["foreground"] || @base["02"]["hex"]
+    store_color_value(@base, "foreground-light", color)
+    color = scheme_data["background-light"] || scheme_data["background"] || @base["07"]["hex"]
+    store_color_value(@base, "background-light", color)
+
+    color = scheme_data["foreground-dark"] || scheme_data["foreground"] || @base["05"]["hex"]
+    store_color_value(@base, "foreground-dark", color)
+    color = scheme_data["background-dark"] || scheme_data["background"] || @base["00"]["hex"]
+    store_color_value(@base, "background-dark", color)
   end
+
+  def store_color_value(base, color_key, hex)
+    # Strip optional leading '#'.  Among other things, this enables using
+    # rainbow mode in emacs.
+    hex = hex[1..-1] if hex[0] == '#'
+    base[color_key] = {
+      "hex" => hex,
+      "hexbgr" => to_hex_bgr(hex),
+      "dhex" => to_dhex(hex),
+      "rgb" => to_rgb(hex),
+      "srgb" => to_srgb(hex)
+    }
+  end
+
 
   def create_output_files
     # Read each
@@ -123,7 +188,6 @@ class Theme
   def write_output_file(template_file, contents)
     dir_name = File.basename(File.dirname(template_file))
     file_name = File.basename(template_file, ".erb")
-    scheme_name = slug(@scheme)
 
     output_dir = File.join(@output_dir, dir_name)
     make_dir(output_dir)
@@ -131,8 +195,16 @@ class Theme
     # If the filename starts with a dash, we use the dash to separate
     delimiter = file_name.starts_with?("-") ? "" : "."
 
+    if @type == 'terminal'
+      if file_name =~/light/
+        return
+      elsif file_name =~/dark/
+        file_name.gsub('dark.', '')
+      end
+    end
+
     output_filename = File.join(output_dir,
-                                "base16-#{scheme_name}#{delimiter}#{file_name}")
+                                "#{@type}-#{@slug}#{delimiter}#{file_name}")
     output_file = File.open(output_filename, "w")
     output_file.write(contents)
     output_file.close

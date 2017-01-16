@@ -6,8 +6,8 @@
 # Base16 <%= @scheme %> - Gnome Terminal color scheme install script
 # <%= @author %>
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="<%= @profile_name %><%= @type=='terminal' ? '' : ' Dark'%>"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="<%= @profile_slug %><%= @type=='terminal' ? '' : '-dark'%>"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="_dynamic_"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="_dynamic_"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -39,9 +39,6 @@ dlist_append() {
 
 # Newest versions of gnome-terminal use dconf
 if which "$DCONF" > /dev/null 2>&1; then
-    #check that uuidgen is available
-    type $UUIDGEN >/dev/null 2>&1 || { echo >&2 "Requires uuidgen but it's not installed.  Aborting!"; exit 1; }
-
     [[ -z "$BASE_KEY_NEW" ]] && BASE_KEY_NEW=/org/gnome/terminal/legacy/profiles:
 
     if [[ -n "`$DCONF list $BASE_KEY_NEW/`" ]]; then

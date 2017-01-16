@@ -6,8 +6,8 @@
 # Base16 <%= @scheme %> - Gnome Terminal color scheme install script
 # <%= @author %>
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="<%= @profile_name %><%= @type=='terminal' ? '' : ' Dark'%>"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="<%= @profile_slug %><%= @type=='terminal' ? '' : '-dark'%>"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="_dynamic_"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="_dynamic_"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -39,9 +39,6 @@ dlist_append() {
 
 # Newest versions of gnome-terminal use dconf
 if which "$DCONF" > /dev/null 2>&1; then
-    #check that uuidgen is available
-    type $UUIDGEN >/dev/null 2>&1 || { echo >&2 "Requires uuidgen but it's not installed.  Aborting!"; exit 1; }
-
     [[ -z "$BASE_KEY_NEW" ]] && BASE_KEY_NEW=/org/gnome/terminal/legacy/profiles:
 
     if [[ -n "`$DCONF list $BASE_KEY_NEW/`" ]]; then
@@ -58,7 +55,7 @@ if which "$DCONF" > /dev/null 2>&1; then
         DEFAULT_KEY="$BASE_KEY_NEW/:$DEFAULT_SLUG"
         PROFILE_KEY="$BASE_KEY_NEW/:$PROFILE_SLUG"
 
-        # copy existing settings from default profile
+         # copy existing settings from default profile
         $DCONF dump "$DEFAULT_KEY/" | $DCONF load "$PROFILE_KEY/"
 
         # add new copy to list of profiles
@@ -67,10 +64,10 @@ if which "$DCONF" > /dev/null 2>&1; then
         # update profile values with theme options
         dset visible-name "'$PROFILE_NAME'"
 
-        dset palette "['#<%= @base["00"]["hex"] %>', '#<%= @base["08"]["hex"] %>', '#<%= @base["0B"]["hex"] %>', '#<%= @base["0A"]["hex"] %>', '#<%= @base["0D"]["hex"] %>', '#<%= @base["0E"]["hex"] %>', '#<%= @base["0C"]["hex"] %>', '#<%= @base["05"]["hex"] %>', '#<%= @base["03"]["hex"] %>', '#<%= @base["0808"]["hex"] %>', '#<%= @base["0B0B"]["hex"] %>', '#<%= @base["0A0A"]["hex"] %>', '#<%= @base["0D0D"]["hex"] %>', '#<%= @base["0E0E"]["hex"] %>', '#<%= @base["0C0C"]["hex"] %>', '#<%= @base["07"]["hex"] %>']"
-        dset background-color "'#<%= @base["background-dark"]["hex"] %>'"
-        dset foreground-color "'#<%= @base["foreground-dark"]["hex"] %>'"
-        dset bold-color "'#<%= @base["foreground-dark"]["hex"] %>'"
+        dset palette "'#<%= @base["07"]["hex"] %>:#<%= @base["08"]["hex"] %>:#<%= @base["0B"]["hex"] %>:#<%= @base["0A"]["hex"] %>:#<%= @base["0D"]["hex"] %>:#<%= @base["0E"]["hex"] %>:#<%= @base["0C"]["hex"] %>:#<%= @base["05"]["hex"] %>:#<%= @base["03"]["hex"] %>:#<%= @base["0808"]["hex"] %>:#<%= @base["0B0B"]["hex"] %>:#<%= @base["0A0A"]["hex"] %>:#<%= @base["0D0D"]["hex"] %>:#<%= @base["0E0E"]["hex"] %>:#<%= @base["0C0C"]["hex"] %>:#<%= @base["00"]["hex"] %>'"
+        dset background-color "'#<%= @base["background-light"]["hex"] %>'"
+        dset foreground-color "'#<%= @base["foreground-light"]["hex"] %>'"
+        dset bold-color "'#<%= @base["foreground-light"]["hex"] %>'"
         dset bold-color-same-as-fg "true"
         dset use-theme-colors "false"
         dset use-theme-background "false"
@@ -117,10 +114,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#<%= @base["00"]["hex"] %>:#<%= @base["08"]["hex"] %>:#<%= @base["0B"]["hex"] %>:#<%= @base["0A"]["hex"] %>:#<%= @base["0D"]["hex"] %>:#<%= @base["0E"]["hex"] %>:#<%= @base["0C"]["hex"] %>:#<%= @base["05"]["hex"] %>:#<%= @base["03"]["hex"] %>:#<%= @base["0808"]["hex"] %>:#<%= @base["0B0B"]["hex"] %>:#<%= @base["0A0A"]["hex"] %>:#<%= @base["0D0D"]["hex"] %>:#<%= @base["0E0E"]["hex"] %>:#<%= @base["0C0C"]["hex"] %>:#<%= @base["07"]["hex"] %>"
-gset string background_color "#<%= @base["background-dark"]["hex"] %>"
-gset string foreground_color "#<%= @base["foreground-dark"]["hex"] %>"
-gset string bold_color "#<%= @base["foreground-dark"]["hex"] %>"
+gset string palette "#<%= @base["07"]["hex"] %>:#<%= @base["08"]["hex"] %>:#<%= @base["0B"]["hex"] %>:#<%= @base["0A"]["hex"] %>:#<%= @base["0D"]["hex"] %>:#<%= @base["0E"]["hex"] %>:#<%= @base["0C"]["hex"] %>:#<%= @base["05"]["hex"] %>:#<%= @base["03"]["hex"] %>:#<%= @base["0808"]["hex"] %>:#<%= @base["0B0B"]["hex"] %>:#<%= @base["0A0A"]["hex"] %>:#<%= @base["0D0D"]["hex"] %>:#<%= @base["0E0E"]["hex"] %>:#<%= @base["0C0C"]["hex"] %>:#<%= @base["00"]["hex"] %>"
+gset string background_color "#<%= @base["background-light"]["hex"] %>"
+gset string foreground_color "#<%= @base["foreground-light"]["hex"] %>"
+gset string bold_color "#<%= @base["foreground-light"]["hex"] %>"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"
