@@ -52,7 +52,7 @@ class Theme
   end
 
   def read_scheme_dir
-    Dir.glob(File.join(@scheme_dir, '**', '*.yml'))
+    Dir.glob(File.join(@scheme_dir, '**', '*.yml')).sort
   rescue StandardError
     abort(read_error_message(scheme_dir))
   end
@@ -64,7 +64,7 @@ class Theme
   end
 
   def read_template_dir
-    Dir.glob(File.join(@template_dir, '**', '*.erb'))
+    Dir.glob(File.join(@template_dir, '**', '*.erb')).sort
   rescue StandardError
     abort(read_error_message(@template_dir))
   end
