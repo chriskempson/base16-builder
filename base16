@@ -93,7 +93,8 @@ class Theme
         "hexbgr" => to_hex_bgr(hex),
         "dhex" => to_dhex(hex),
         "rgb" => to_rgb(hex),
-        "srgb" => to_srgb(hex)
+        "srgb" => to_srgb(hex),
+        "hsl" => rgb_to_hsl(to_rgb(hex))
       }
     end
   end
@@ -163,6 +164,77 @@ class Theme
 
   def to_srgb(hex)
     hex.scan(/../).map {|color| color.to_i(16).to_f / 255 }
+  end
+
+  # borrowed from https://github.com/sass/sass/blob/1e73d31c0dcb506ea87df6ea0e9f04ef4a776a38/lib/sass/script/value/color.rb#L637
+  def rgb_to_hsl(rgb)
+    r, g, b = rgb.map {|v| v / 255.0}
+
+    # Algorithm from http://en.wikipedia.org/wiki/HSL_and_HSV#Conversion_from_RGB_to_HSL_or_HSV
+    max = [r, g, b].max
+    min = [r, g, b].min
+    d = max - min
+
+    h =
+      case max
+      when min; 0
+      when r; 60 * (g - b) / d
+      when g; 60 * (b - r) / d + 120
+      when b; 60 * (r - g) / d + 240
+      end
+
+    l = (max + min) / 2.0
+
+    s =
+      if max == min
+        0
+      elsif l < 0.5
+        d / (2 * l)
+      else
+        d / (2 - 2 * l)
+      end
+
+    [
+      h % 360,
+      s * 100,
+      l * 100
+    ].map(&:round)
+  end
+
+  def hsl_to_rgb(hsl)
+    h = hsl[0] / 360.0
+    s = hsl[1] / 100.0
+    l = hsl[2] / 100.0
+
+    # Algorithm from the CSS3 spec: http://www.w3.org/TR/css3-color/#hsl-color.
+    m2 = l <= 0.5 ? l * (s + 1) : l + s - l * s
+    m1 = l * 2 - m2
+    [
+      hue_to_rgb(m1, m2, h + 1.0 / 3),
+      hue_to_rgb(m1, m2, h),
+      hue_to_rgb(m1, m2, h - 1.0 / 3)
+    ].map {|c| round(c * 0xff)}
+  end
+
+  def hue_to_rgb(m1, m2, h)
+    h += 1 if h < 0
+    h -= 1 if h > 1
+    return m1 + (m2 - m1) * h * 6 if h * 6 < 1
+    return m2 if h * 2 < 1
+    return m1 + (m2 - m1) * (2.0 / 3 - h) * 6 if h * 3 < 2
+    m1
+  end
+
+  # borrowed from https://github.com/sass/sass/blob/stable/lib/sass/util.rb
+  # Like [Fixnum.round], but leaves rooms for slight floating-point
+  # differences.
+  #
+  # @param value [Numeric]
+  # @return [Numeric]
+  def round(value)
+    # If the number is within epsilon of X.5, round up.
+    return value.ceil if (value % 1) - 0.5 > -0.00001
+    value.round
   end
 
   def split_by_slash(hex)

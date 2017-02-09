@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>README</title>
+  <style>
+    html, body {
+      font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      word-wrap: break-word;
+      box-sizing: border-box;
+    }
+    html { padding: none; }
+    body { box-sizing: border-box; padding: 20px; background-color: rgb(255, 255, 255); }
+    body :first-child { margin-top: 0; }
+    a:not([href]) { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+    h1 tt, h2 tt, h3 tt, h4 tt, h5 tt, h6 tt, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code, h6 code { font-size: inherit; }
+    h1 {
+      padding-bottom: 0.3em;
+      font-size: 2.25em;
+      line-height: 1.2;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: rgb(238, 238, 238);
+    }
+    h2 {
+      padding-bottom: 0.3em;
+      font-size: 1.75em;
+      line-height: 1.225;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: rgb(238, 238, 238);
+    }
+    h3 { font-size: 1.5em; line-height: 1.43; }
+    h4 { font-size: 1.25em; }
+    h5 { font-size: 1em; }
+    h6 { font-size: 1em; color: rgb(119, 119, 119); }
+    p, blockquote, ul, ol, dl, table, pre { margin-top: 0px; margin-bottom: 16px; }
+    hr {
+      height: 4px;
+      padding: 0px;
+      margin: 16px 0px;
+      border: 0px none;
+      background-color: rgb(231, 231, 231);
+    }
+    ul, ol { padding-left: 2em; }
+    ul.no-list, ol.no-list { padding: 0px; list-style-type: none; }
+    ul ul, ul ol, ol ol, ol ul { margin-top: 0px; margin-bottom: 0px; }
+    li > p { margin-top: 16px; }
+    dl { padding: 0px; }
+    dl dt {
+      padding: 0px;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold;
+    }
+    dl dd { padding: 0px 16px; margin-bottom: 16px;}
+    blockquote {
+      padding: 0px 15px;
+      color: rgb(119, 119, 119);
+      border-left-width: 4px;
+      border-left-style: solid;
+      border-left-color: rgb(221, 221, 221);
+    }
+    blockquote >:first-child { margin-top: 0px; }
+    blockquote >:last-child { margin-bottom: 0px; }
+    table {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+    }
+    table th { font-weight: bold; }
+    table th, table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221);}
+    table tr {
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: rgb(204, 204, 204);
+      background-color: rgb(255, 255, 255);
+    }
+    table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+    img { max-width: 100%; box-sizing: border-box;}
+    .emoji { max-width: none; }
+    span.frame { display: block; overflow: hidden;}
+    span.frame > span {
+      display: block;
+      float: left;
+      width: auto;
+      padding: 7px;
+      margin: 13px 0px 0px;
+      overflow: hidden;
+      border: 1px solid rgb(221, 221, 221);
+    }
+    span.frame span img { display: block; float: left;}
+    span.frame span span {
+      display: block;
+      padding: 5px 0px 0px;
+      clear: both;
+      color: rgb(51, 51, 51);
+    }
+    span.align-center { display: block; overflow: hidden; clear: both; }
+    span.align-center > span {
+      display: block;
+      margin: 13px auto 0px;
+      overflow: hidden;
+      text-align: center;
+    }
+    span.align-center span img { margin: 0px auto; text-align: center;}
+    span.align-right { display: block; overflow: hidden; clear: both; }
+    span.align-right > span {
+      display: block;
+      margin: 13px 0px 0px;
+      overflow: hidden;
+      text-align: right;
+    }
+    span.align-right span img { margin: 0px; text-align: right;}
+    span.float-left {
+      display: block;
+      float: left;
+      margin-right: 13px;
+      overflow: hidden;
+    }
+    span.float-left span { margin: 13px 0px 0px; }
+    span.float-right {
+      display: block;
+      float: right;
+      margin-left: 13px;
+      overflow: hidden;
+    }
+    span.float-right > span {
+      display: block;
+      margin: 13px auto 0px;
+      overflow: hidden;
+      text-align: right;
+    }
+    code, tt {
+      padding: 0.2em 0px;
+      margin: 0px;
+      font-size: 85%;
+      border-radius: 3px;
+      background-color: rgba(0, 0, 0, 0.0392157);
+    }
+    code::before, tt::before, code::after, tt::after { letter-spacing: -0.2em; content: ' ';}
+    code br, tt br { display: none; }
+    del code { text-decoration: inherit; }
+    pre > code {
+      padding: 0px;
+      margin: 0px;
+      font-size: 100%;
+      word-break: normal;
+      white-space: pre;
+      border: 0px;
+      background: transparent;
+    }
+    .highlight { margin-bottom: 16px; }
+    .highlight pre, pre {
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      border-radius: 3px;
+      background-color: rgb(247, 247, 247);
+    }
+    .highlight pre { margin-bottom: 0px; word-break: normal;}
+    pre { word-wrap: normal; }
+    pre code, pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0px;
+      margin: 0px;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      border: 0px;
+      background-color: transparent;
+    }
+    pre code::before, pre tt::before, pre code::after, pre tt::after { content: normal; }
+    kbd {
+      display: inline-block;
+      padding: 3px 5px;
+      font-size: 11px;
+      line-height: 10px;
+      color: rgb(85, 85, 85);
+      vertical-align: middle;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187);
+      border-radius: 3px;
+      box-shadow: rgb(187, 187, 187) 0px -1px 0px inset;
+      background-color: rgb(252, 252, 252);
+    }
+    > h1:first-child, > h1:first-child + h2, > h2:first-child, > h3:first-child, > h4:first-child, > h5:first-child, > h6:first-child { margin-top: 0px; padding-top: 0px;}
+    a, a code { color: rgb(65, 131, 196); }
+    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 { margin-top: 0px; padding-top: 0px;}
+    h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p { margin-top: 0px; }
+    li p.first { display: inline-block; }
+    ul li >:first-child, ol li >:first-child, ul li ul:first-of-type, ol li ul:first-of-type { margin-top: 0px; }
+    ol > li { list-style-type: decimal; }
+    ul > li { list-style-type: disc; }
+    dl dt:first-child { padding: 0px; }
+    dl dt >:first-child { margin-top: 0px; }
+    dl dt >:last-child { margin-bottom: 0px; }
+    dl dd >:first-child { margin-top: 0px; }
+    dl dd >:last-child { margin-bottom: 0px; }
+    blockquote p { font-size: 16px; line-height: 1.5;}
+    pre.editor-colors {
+      padding: 16px;
+      overflow: auto;
+      font-size: 84%;
+      line-height: 1.45;
+      border-radius: 3px;
+      background-color: rgb(255, 254, 252);
+    }
+    pre.editor-colors { margin-bottom: 16px; word-break: normal;}
+    code, tt, pre.editor-colors { font-family: Consolas, 'Liberation Mono', Courier, monospace; }
+    .base00 { color: #<%=@base["00"]["hex"] %>; }
+    .base00::after { content: '00'; background-color: #<%=@base["00"]["hex"] %>;}
+    .base01 { color: #<%=@base["01"]["hex"] %>; }
+    .base01::after { content: '01'; background-color: #<%=@base["01"]["hex"] %>;}
+    .base02 { color: #<%=@base["02"]["hex"] %>; }
+    .base02::after { content: '02'; background-color: #<%=@base["02"]["hex"] %>;}
+    .base03 { color: #<%=@base["03"]["hex"] %>; }
+    .base03::after { content: '03'; background-color: #<%=@base["03"]["hex"] %>;}
+    .base04 { color: #<%=@base["04"]["hex"] %>; }
+    .base04::after { content: '04'; background-color: #<%=@base["04"]["hex"] %>;}
+    .base05 { color: #<%=@base["05"]["hex"] %>; }
+    .base05::after { content: '05'; background-color: #<%=@base["05"]["hex"] %>;}
+    .base06 { color: #<%=@base["06"]["hex"] %>; }
+    .base06::after { content: '06'; background-color: #<%=@base["06"]["hex"] %>;}
+    .base07 { color: #<%=@base["07"]["hex"] %>; }
+    .base07::after { content: '07'; background-color: #<%=@base["07"]["hex"] %>;}
+    .base08 { color: #<%=@base["08"]["hex"] %>; }
+    .base08::after { content: '08'; background-color: #<%=@base["08"]["hex"] %>;}
+    .base09 { color: #<%=@base["09"]["hex"] %>; }
+    .base09::after { content: '09'; background-color: #<%=@base["09"]["hex"] %>;}
+    .base0A { color: #<%=@base["0A"]["hex"] %>; }
+    .base0A::after { content: '0A'; background-color: #<%=@base["0A"]["hex"] %>;}
+    .base0B { color: #<%=@base["0B"]["hex"] %>; }
+    .base0B::after { content: '0B'; background-color: #<%=@base["0B"]["hex"] %>;}
+    .base0C { color: #<%=@base["0C"]["hex"] %>; }
+    .base0C::after { content: '0C'; background-color: #<%=@base["0C"]["hex"] %>;}
+    .base0D { color: #<%=@base["0D"]["hex"] %>; }
+    .base0D::after { content: '0D'; background-color: #<%=@base["0D"]["hex"] %>;}
+    .base0E { color: #<%=@base["0E"]["hex"] %>; }
+    .base0E::after { content: '0E'; background-color: #<%=@base["0E"]["hex"] %>;}
+    .base0F { color: #<%=@base["0F"]["hex"] %>; }
+    .base0F::after { content: '0F'; background-color: #<%=@base["0F"]["hex"] %>;}
+    .base080E { color: #<%=rgb_to_hex(mix(@base["08"]["rgb"], @base["0E"]["rgb"], 50)) %>; }
+    .base080E::after { content: '080E'; background-color: #<%=rgb_to_hex(mix(@base["08"]["rgb"], @base["0E"]["rgb"], 50)) %>;}
+    .base0B0D { color: #<%=rgb_to_hex(mix(@base["0B"]["rgb"], @base["0D"]["rgb"], 50)) %>; }
+    .base0B0D::after { content: '0B0D'; background-color: #<%=rgb_to_hex(mix(@base["0B"]["rgb"], @base["0D"]["rgb"], 50)) %>;}
+    .base0C0D { color: #<%=rgb_to_hex(mix(@base["0C"]["rgb"], @base["0D"]["rgb"], 50)) %>; }
+    .base0C0D::after { content: '0C0D'; background-color: #<%=rgb_to_hex(mix(@base["0C"]["rgb"], @base["0D"]["rgb"], 50)) %>;}
+    .base0D0E { color: #<%=rgb_to_hex(mix(@base["0D"]["rgb"], @base["0E"]["rgb"], 50)) %>; }
+    .base0D0E::after { content: '0D0E'; background-color: #<%=rgb_to_hex(mix(@base["0D"]["rgb"], @base["0E"]["rgb"], 50)) %>;}
+    .base0903 { color: #<%=rgb_to_hex(mix(@base["09"]["rgb"], @base["03"]["rgb"], 40)) %>; }
+    .base0903::after { content: '0903'; background-color: #<%=rgb_to_hex(mix(@base["09"]["rgb"], @base["03"]["rgb"], 40)) %>;}
+    .base0A03 { color: #<%=rgb_to_hex(mix(@base["0A"]["rgb"], @base["03"]["rgb"], 40)) %>; }
+    .base0A03::after { content: '0A03'; background-color: #<%=rgb_to_hex(mix(@base["0A"]["rgb"], @base["03"]["rgb"], 40)) %>;}
+    .base0B03 { color: #<%=rgb_to_hex(mix(@base["0B"]["rgb"], @base["03"]["rgb"], 40)) %>; }
+    .base0B03::after { content: '0B03'; background-color: #<%=rgb_to_hex(mix(@base["0B"]["rgb"], @base["03"]["rgb"], 40)) %>;}
+    .base0E03 { color: #<%=rgb_to_hex(mix(@base["0E"]["rgb"], @base["03"]["rgb"], 40)) %>; }
+    .base0E03::after { content: '0E03'; background-color: #<%=rgb_to_hex(mix(@base["0E"]["rgb"], @base["03"]["rgb"], 40)) %>;}
+    .alert { color: #<%=rgb_to_hex(hsl_to_rgb(saturate(rgb_to_hsl(tint(@base["08"]["rgb"], 10)), 15))) %>; }
+    .alert::after { content: '08+'; background-color: #<%=rgb_to_hex(hsl_to_rgb(saturate(rgb_to_hsl(tint(@base["08"]["rgb"], 10)), 15))) %>;}
+    .information { color: #<%=rgb_to_hex(hsl_to_rgb(saturate(rgb_to_hsl(tint(@base["0B"]["rgb"], 10)), 15))) %>; }
+    .information::after { content: '0B+'; background-color: #<%=rgb_to_hex(hsl_to_rgb(saturate(rgb_to_hsl(tint(@base["0B"]["rgb"], 10)), 15))) %>;}
+    .dt-name { font-weight: bold; }
+    .dt-name::after {
+      display: inline-block;
+      padding: 1pt 0.5ex;
+      font-family: monospace;
+      font-size: 10pt;
+      color: white;
+      margin-left: 0.5ex;
+      font-weight: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="kate-base16-syntax-highlighting">Kate Base16 syntax highlighting</h1>
+  <h2 id="file-format">File format</h2>
+  <p>The first number in the list relates to the default value for the type, defined in <a href="https://quickgit.kde.org/?p=ktexteditor.git&amp;a=blob&amp;h=7fb1941c2f6a2ce4287ed4620788eb7df6aa6aca&amp;hb=fc025358eff33178cdb6670c1ddb223938c66517&amp;f=src%2Finclude%2Fktexteditor%2Fattribute.h">include/ktexteditor/attribute.h</a></p>
+  <ul>
+    <li>
+      <blockquote>
+        <p>
+          <strong>Normal Text</strong>
+        </p>
+      </blockquote>
+    </li>
+  </ul>
+  <p>&ensp; 0.&nbsp;
+    <span class="base00 dt-name">Normal</span>
+    <br> &emsp;&nbsp;&emsp;Default for normal text and source code.</p>
+  <ol>
+    <li>
+      <p>
+        <span class="base0E dt-name">Keyword</span>
+        <br>Used for language keywords.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0D dt-name">Function</span>
+        <br>Used for function definitions and function calls.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0A dt-name">Variable</span>
+        <br>Used for variables, if applicable.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0E dt-name">ControlFlow</span>
+        <br>Used for control flow highlighting, e.g., if, then, else, return, continue.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0C dt-name">Operator</span>
+        <br>Used for operators such as
+        <code>+</code>,
+        <code>-</code>,
+        <code>*</code>,
+        <code>/</code> and
+        <code>::</code> etc.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0D0E dt-name">BuiltIn</span>
+        <br>Used for built-in language classes and functions.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0C0D dt-name">Extension</span>
+        <br>Used for extensions, such as Qt or boost.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base08 dt-name">Preprocessor</span>
+        <br>Used for preprocessor statements.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base080E dt-name">Attribute</span>
+        <br>Used for attributes of a function, e.g.
+        <code>@override</code> in Java.</p>
+      <blockquote>
+        <p>
+          <strong>Strings &amp; Characters</strong>
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <p>
+        <span class="base0B dt-name">Char</span>
+        <br>Used for a single character.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base09 dt-name">SpecialChar</span>
+        <br>Used for an escaped character.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0B dt-name">String</span>
+        <br>Used for strings.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0B dt-name">VerbatimString</span>
+        <br>Used for verbatim strings such as HERE docs.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base08 dt-name">SpecialString</span>
+        <br>Used for special strings such as regular expressions or LaTeX math mode.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0E dt-name">Import</span>
+        <br>Used for includes, imports and modules.</p>
+      <blockquote>
+        <p>
+          <strong>Number, Types &amp; Constants</strong>
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <p>
+        <span class="base0E dt-name">DataType</span>
+        <br>Used for data types such as int, char, float etc.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base09 dt-name">DecVal</span>
+        <br>Used for decimal values.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base09 dt-name">BaseN</span>
+        <br>Used for numbers with base other than 10.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base09 dt-name">Float</span>
+        <br>Used for floating point numbers.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0A dt-name">Constant</span>
+        <br>Used for language constants.</p>
+      <blockquote>
+        <p>
+          <strong>Comments &amp; Documentation</strong>
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <p>
+        <span class="base03 dt-name">Comment</span>
+        <br>Used for normal comments.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0B03 dt-name">Documentation</span>
+        <br>Used for comments that reflect API documentation.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0E03 dt-name">Annotation</span>
+        <br>Used for annotations in comments, e.g.
+        <code>@param</code> in Doxygen or JavaDoc.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0903 dt-name">CommentVar</span>
+        <br>Used to refer to variables in a comment, e.g. after
+        <code>@param</code> in Doxygen or JavaDoc.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0C dt-name">RegionMarker</span>
+        <br>Used for region markers, typically defined by BEGIN/END.</p>
+    </li>
+    <li>
+      <p>
+        <span class="information dt-name">Information</span>
+        <br>Used for information, e.g. the keyword
+        <code>@note</code> in Doxygen.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base0A03 dt-name">Warning</span>
+        <br>Used for warnings, e.g. the keyword
+        <code>@warning</code> in Doxygen.</p>
+    </li>
+    <li>
+      <p>
+        <span class="alert dt-name">Alert</span>
+        <br>Used for comment specials TODO and WARNING in comments.</p>
+      <blockquote>
+        <p>
+          <strong>Misc</strong>
+        </p>
+      </blockquote>
+    </li>
+    <li>
+      <p>
+        <span class="base0F dt-name">Others</span>
+        <br>Used for attributes that do not match any of the other default styles.</p>
+    </li>
+    <li>
+      <p>
+        <span class="base08 dt-name">Error</span>
+        <br>Used to indicate wrong syntax.</p>
+    </li>
+  </ol>
+</body>
+
+</html>
