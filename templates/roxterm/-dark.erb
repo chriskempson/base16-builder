@@ -7,7 +7,7 @@ end
 foreground=#<%= to_48bit_hex(@base["05"]["rgb"]) %>
 background=#<%= to_48bit_hex(@base["00"]["rgb"]) %>
 palette_size = 16
-0=#<%= to_48bit_hex(@base["00"]["rgb"]) %><%# Black %>
+0=#<%= to_48bit_hex(@base["03"]["rgb"]) %><%# Black %>
 1=#<%= to_48bit_hex(@base["08"]["rgb"]) %><%# Red %>
 2=#<%= to_48bit_hex(@base["0B"]["rgb"]) %><%# Green %>
 3=#<%= to_48bit_hex(@base["0A"]["rgb"]) %><%# Yellow %>
@@ -15,7 +15,7 @@ palette_size = 16
 5=#<%= to_48bit_hex(@base["0E"]["rgb"]) %><%# Magenta %>
 6=#<%= to_48bit_hex(@base["0C"]["rgb"]) %><%# Cyan %>
 7=#<%= to_48bit_hex(@base["05"]["rgb"]) %><%# White %>
-8=#<%= to_48bit_hex(tint(@base["00"]["rgb"], @ratio)) %><%# Black %>
+8=#<%= to_48bit_hex(tint(@base["03"]["rgb"], @ratio)) %><%# Black %>
 9=#<%= to_48bit_hex(tint(@base["08"]["rgb"], @ratio)) %><%# Red %>
 10=#<%= to_48bit_hex(tint(@base["0B"]["rgb"], @ratio)) %><%# Green %>
 11=#<%= to_48bit_hex(tint(@base["0A"]["rgb"], @ratio)) %><%# Yellow %>
@@ -23,4 +23,4 @@ palette_size = 16
 13=#<%= to_48bit_hex(tint(@base["0E"]["rgb"], @ratio)) %><%# Magenta %>
 14=#<%= to_48bit_hex(tint(@base["0C"]["rgb"], @ratio)) %><%# Cyan %>
 15=#<%= to_48bit_hex(tint(@base["05"]["rgb"], @ratio)) %><%# White %>
-bold=#<%= to_48bit_hex(tint(@base["00"]["rgb"], @ratio)) %>
+bold=#<%= to_48bit_hex(tint(@base["06"]["rgb"], @ratio)) %>
