@@ -1,0 +1,27 @@
+<%
+@ratio = 50
+def to_hex(rgb)
+  sprintf('%02x%02x%02x', *rgb)
+end
+%>
+[roxterm colour scheme]
+foreground = #<%= @base["05"]["hex"] %>
+background = #<%= @base["00"]["hex"] %>
+palette_size = 16
+0 = #<%= @base["00"]["hex"] %> <%# Black %>
+1 = #<%= @base["08"]["hex"] %> <%# Red %>
+2 = #<%= @base["0B"]["hex"] %> <%# Green %>
+3 = #<%= @base["0A"]["hex"] %> <%# Yellow %>
+4 = #<%= @base["0D"]["hex"] %> <%# Blue %>
+5 = #<%= @base["0E"]["hex"] %> <%# Magenta %>
+6 = #<%= @base["0C"]["hex"] %> <%# Cyan %>
+7 = #<%= @base["05"]["hex"] %> <%# White %>
+8 = #<%= to_hex(tint(@base["00"]["rgb"], @ratio)) %> <%# Black %>
+9 = #<%= to_hex(tint(@base["08"]["rgb"], @ratio)) %> <%# Red %>
+10 = #<%= to_hex(tint(@base["0B"]["rgb"], @ratio)) %> <%# Green %>
+11 = #<%= to_hex(tint(@base["0A"]["rgb"], @ratio)) %> <%# Yellow %>
+12 = #<%= to_hex(tint(@base["0D"]["rgb"], @ratio)) %> <%# Blue %>
+13 = #<%= to_hex(tint(@base["0E"]["rgb"], @ratio)) %> <%# Magenta %>
+14 = #<%= to_hex(tint(@base["0C"]["rgb"], @ratio)) %> <%# Cyan %>
+15 = #<%= to_hex(tint(@base["05"]["rgb"], @ratio)) %> <%# White %>
+bold = #<%= to_hex(tint(@base["00"]["rgb"], @ratio)) %>
