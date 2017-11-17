@@ -1,5 +1,5 @@
 # Base16 Update
-This repository is deprecated as Base16 is changing the way it is built and maintained. No future PRs will be accepted.
+This repository is **deprecated** as Base16 is changing the way it is built and maintained. No future PRs will be accepted.
 
 - No longer tied to Ruby and has no official builder only implementations of builders that follow the (currently draft) spec found at at http://chriskempson.com/projects/base16.
 - Scheme designers are no longer foced to have light and dark themes. You can now make a dark only or light only theme.
