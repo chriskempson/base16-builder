@@ -21,3 +21,5 @@ Please see https://github.com/chriskempson/base16#builder-repositories for a lis
 
 ## Questions?
 Any questions can be raised as issues on https://github.com/chriskempson/base16
+
+Thank You!
